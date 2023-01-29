@@ -1,6 +1,15 @@
 import { ACTIONS } from '../context/Cart/actions';
 
-type CartActions = { type: ACTIONS.ADD; payload: ProductType };
+type AddToCartType = { type: typeof ACTIONS.ADD; payload: ProductType };
+type RemoveFromCartType = { type: typeof ACTIONS.DELETE; payload: ProductType };
+type ResetCartType = { type: typeof ACTIONS.RESET };
+
+type CartActions = AddToCartType | RemoveFromCartType | ResetCartType;
+
+// type CartActions =
+//   | { type: ACTIONS.ADD; payload: ProductType }
+//   | { type: ACTIONS.DELETE; payload: ProductType }
+//   | { type: ACTIONS.RESET};
 
 type ProductType = {
   name: string;
@@ -34,4 +43,7 @@ export type {
   ICartCtx,
   CartProviderType,
   OmPrTy,
+  ResetCartType,
+  RemoveFromCartType,
+  AddToCartType,
 };

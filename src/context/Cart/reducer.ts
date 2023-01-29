@@ -1,18 +1,31 @@
-import { CartActions, CartType, ProductType } from '../../types/types';
+import {
+  AddToCartType,
+  CartActions,
+  CartType,
+  ProductType,
+  RemoveFromCartType,
+  ResetCartType,
+} from '../../types/types';
 import { ACTIONS } from './actions';
 
+function totalPrice(items: ProductType[]) {
+  return items.reduce((acc, item) => {
+    acc = acc + item.price * item.quantity;
+    return acc;
+  }, 0);
+}
+
 function reducer(state: CartType, action: CartActions) {
-  const { type, payload } = action;
-  switch (type) {
+  switch (action.type) {
     case ACTIONS.ADD: {
       const found = state.items.findIndex((item) => {
-        return item.id === payload.id;
+        return item.id === action.payload.id;
       });
       const items =
         found === -1
-          ? [...state.items, { ...payload, quantity: 1 }]
+          ? [...state.items, { ...action.payload, quantity: 1 }]
           : [...state.items].map((item, index) => {
-              if (state.items[found].quantity >= payload.quantity) {
+              if (state.items[found].quantity >= action.payload.quantity) {
                 return item;
               }
 
@@ -22,22 +35,73 @@ function reducer(state: CartType, action: CartActions) {
               return item;
             });
 
-      const totalPrice = items.reduce((acc, item) => {
-        acc = acc + item.price * item.quantity;
-        return acc;
-      }, 0);
+      console.log({ items: items, price: totalPrice(items) });
+      return { items: items, price: totalPrice(items) };
+    }
+    case ACTIONS.DELETE: {
+      const found = state.items.findIndex((item) => {
+        return item.id === action.payload.id;
+      });
 
-      console.log({ items: items, price: totalPrice });
-      return { items: items, price: totalPrice };
+      const items =
+        found === -1
+          ? [...state.items]
+          : state.items[found].quantity === 1
+          ? state.items.filter((item) => item.id !== action.payload.id)
+          : state.items.map((item, index) => {
+              if (index === found) {
+                return { ...item, quantity: item.quantity - 1 };
+              } else {
+                return item;
+              }
+            });
+
+      // let items = [];
+      // if (found === -1) {
+
+      //   items = [...state.items];
+      // } else {
+      //   items =
+      //     state.items[found].quantity === 1
+      //       ? state.items.filter((item) => item.id !== action.payload.id)
+      //       : state.items.map((item, index) => {
+      //           if (index === found) {
+      //             return { ...item, quantity: item.quantity - 1 };
+      //           } else {
+      //             return item;
+      //           }
+      //         });
+      // }
+
+      console.log({ items: items, price: totalPrice(items) });
+      return { items: items, price: totalPrice(items) };
+    }
+    case ACTIONS.RESET: {
+      return { items: [], price: 0 };
     }
     default:
       return { ...state };
   }
 }
 
-export const addProduct = ({ name, price, id, quantity }: ProductType) => ({
+const addProduct = ({
+  name,
+  price,
+  id,
+  quantity,
+}: ProductType): AddToCartType => ({
   type: ACTIONS.ADD,
   payload: { id, name, price, quantity },
 });
+const decreaseProductQuantity = ({
+  name,
+  price,
+  id,
+  quantity,
+}: ProductType): RemoveFromCartType => ({
+  type: ACTIONS.DELETE,
+  payload: { id, name, price, quantity },
+});
+const resetCart = (): ResetCartType => ({ type: ACTIONS.RESET });
 
-export { reducer };
+export { reducer, addProduct, decreaseProductQuantity, resetCart };

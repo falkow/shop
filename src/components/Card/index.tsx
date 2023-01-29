@@ -1,6 +1,9 @@
 import React, { useContext } from 'react';
 import { CartCtx } from '../../context/Cart/ctx';
-import { addProduct } from '../../context/Cart/reducer';
+import {
+  addProduct,
+  decreaseProductQuantity,
+} from '../../context/Cart/reducer';
 import { ProductType } from '../../types/types';
 import styles from './Card.module.scss';
 
@@ -24,6 +27,14 @@ export const Card = ({ id, name, price, quantity }: ProductType) => {
         }}
         disabled={quantityInCart === quantity}>
         +1
+      </button>
+      <button
+        onClick={() => {
+          dispatch(decreaseProductQuantity({ id, name, price, quantity }));
+        }}
+        // disabled={quantityInCart === }
+      >
+        -1
       </button>
     </div>
   );
