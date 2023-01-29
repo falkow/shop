@@ -3,16 +3,18 @@ import CartProvider from '../../context/Cart/CartProvider';
 
 import * as data from '../../data/data.json';
 import { Card } from '../Card';
-import * as S from './styles';
+import styles from './Cards.module.scss';
+
+const { wrapperContainer } = styles;
 
 const Cards = () => {
   return (
     <CartProvider>
-      <S.CardContainer>
+      <div className={wrapperContainer}>
         {data.items.map((data) => (
           <Card key={data.id} {...data} />
         ))}
-      </S.CardContainer>
+      </div>
     </CartProvider>
   );
 };

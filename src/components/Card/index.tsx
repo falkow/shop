@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { CartCtx } from '../../context/Cart/ctx';
 import { ProductType } from '../../types/types';
-import styles from './styles.module.scss';
+import styles from './Card.module.scss';
 
 const { card } = styles;
 
