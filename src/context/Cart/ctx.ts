@@ -7,7 +7,7 @@ const initialState: CartType = {
 };
 const CartCtx = React.createContext<ICartCtx>({
   cartState: { ...initialState },
-  addProduct: () => null,
+  dispatch: () => null,
 });
 
 export { CartCtx, initialState };

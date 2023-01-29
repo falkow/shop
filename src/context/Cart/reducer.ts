@@ -1,4 +1,4 @@
-import { CartActions, CartType } from '../../types/types';
+import { CartActions, CartType, ProductType } from '../../types/types';
 import { ACTIONS } from './actions';
 
 function reducer(state: CartType, action: CartActions) {
@@ -34,5 +34,10 @@ function reducer(state: CartType, action: CartActions) {
       return { ...state };
   }
 }
+
+export const addProduct = ({ name, price, id, quantity }: ProductType) => ({
+  type: ACTIONS.ADD,
+  payload: { id, name, price, quantity },
+});
 
 export { reducer };

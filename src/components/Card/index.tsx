@@ -1,12 +1,13 @@
 import React, { useContext } from 'react';
 import { CartCtx } from '../../context/Cart/ctx';
+import { addProduct } from '../../context/Cart/reducer';
 import { ProductType } from '../../types/types';
 import styles from './Card.module.scss';
 
 const { card } = styles;
 
 export const Card = ({ id, name, price, quantity }: ProductType) => {
-  const { cartState, addProduct } = useContext(CartCtx);
+  const { cartState, dispatch } = useContext(CartCtx);
 
   const quantityInCart = cartState.items.find(
     (item) => item.id === id
@@ -19,7 +20,7 @@ export const Card = ({ id, name, price, quantity }: ProductType) => {
       <div>{quantity}</div>
       <button
         onClick={() => {
-          addProduct({ id, name, price, quantity });
+          dispatch(addProduct({ id, name, price, quantity }));
         }}
         disabled={quantityInCart === quantity}>
         +1

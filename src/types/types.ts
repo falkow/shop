@@ -1,8 +1,3 @@
-// type ActionType = {
-//   type: string;
-//   payload: any;
-// };
-
 import { ACTIONS } from '../context/Cart/actions';
 
 type CartActions = { type: ACTIONS.ADD; payload: ProductType };
@@ -23,7 +18,8 @@ type CartType = {
 
 interface ICartCtx {
   cartState: CartType;
-  addProduct: React.Dispatch<ProductType>;
+  // addProduct: React.Dispatch<ProductType>;
+  dispatch: React.Dispatch<CartActions>;
   // addProduct: ({ name, price, id }: OmPrTy) => void;
 }
 
