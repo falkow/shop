@@ -1,15 +1,34 @@
 import { ACTIONS } from '../context/Cart/actions';
 
-type AddToCartType = { type: typeof ACTIONS.ADD; payload: ProductType };
-type RemoveFromCartType = { type: typeof ACTIONS.DELETE; payload: ProductType };
+type AddToCartType = { type: typeof ACTIONS.ADD; payload: dummyProductType };
+type RemoveFromCartType = {
+  type: typeof ACTIONS.DELETE;
+  payload: dummyProductType;
+};
 type ResetCartType = { type: typeof ACTIONS.RESET };
+// type AddToCartType = { type: typeof ACTIONS.ADD; payload: ProductType };
+// type RemoveFromCartType = { type: typeof ACTIONS.DELETE; payload: ProductType };
+// type ResetCartType = { type: typeof ACTIONS.RESET };
 
 type CartActions = AddToCartType | RemoveFromCartType | ResetCartType;
 
-// type CartActions =
-//   | { type: ACTIONS.ADD; payload: ProductType }
-//   | { type: ACTIONS.DELETE; payload: ProductType }
-//   | { type: ACTIONS.RESET};
+type dummyProductType = {
+  id: number;
+  title: string;
+  description: string;
+  price: number;
+  discountPercentage: number;
+  quantity: number;
+  rating: number;
+  stock: number;
+  brand: string;
+  category: string;
+  thumbnail: string;
+  images: Array<string>;
+};
+type DataType = {
+  products: dummyProductType[];
+};
 
 type ProductType = {
   name: string;
@@ -18,32 +37,27 @@ type ProductType = {
   quantity: number;
 };
 
-type OmPrTy = Omit<ProductType, 'quantity'>;
-
 type CartType = {
-  items: ProductType[];
+  items: dummyProductType[];
   price: number;
 };
 
 interface ICartCtx {
   cartState: CartType;
-  // addProduct: React.Dispatch<ProductType>;
   dispatch: React.Dispatch<CartActions>;
-  // addProduct: ({ name, price, id }: OmPrTy) => void;
 }
 
 type CartProviderType = { children: React.ReactNode };
 
-// type CartType = { product: ProductType; quantity: number };
-
 export type {
   ProductType,
+  dummyProductType,
   CartType,
   CartActions,
   ICartCtx,
   CartProviderType,
-  OmPrTy,
   ResetCartType,
   RemoveFromCartType,
   AddToCartType,
+  DataType,
 };

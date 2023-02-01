@@ -4,13 +4,15 @@ import {
   addProduct,
   decreaseProductQuantity,
 } from '../../context/Cart/reducer';
-import { ProductType } from '../../types/types';
+import { dummyProductType, ProductType } from '../../types/types';
 import styles from './Card.module.scss';
 
 const { card } = styles;
 
-export const Card = ({ id, name, price, quantity }: ProductType) => {
+export const Card = (product: dummyProductType) => {
   const { cartState, dispatch } = useContext(CartCtx);
+
+  const { id, title, price, quantity } = product;
 
   const quantityInCart = cartState.items.find(
     (item) => item.id === id
@@ -18,19 +20,20 @@ export const Card = ({ id, name, price, quantity }: ProductType) => {
 
   return (
     <div className={card} key={id}>
-      <div>{name}</div>
+      <div>{title}</div>
       <div>{price}</div>
       <div>{quantity}</div>
       <button
         onClick={() => {
-          dispatch(addProduct({ id, name, price, quantity }));
+          dispatch(addProduct(product));
         }}
-        disabled={quantityInCart === quantity}>
+        /* disabled={quantityInCart === quantity} */
+      >
         +1
       </button>
       <button
         onClick={() => {
-          dispatch(decreaseProductQuantity({ id, name, price, quantity }));
+          dispatch(decreaseProductQuantity(product));
         }}
         // disabled={quantityInCart === }
       >

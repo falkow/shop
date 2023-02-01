@@ -2,13 +2,14 @@ import {
   AddToCartType,
   CartActions,
   CartType,
+  dummyProductType,
   ProductType,
   RemoveFromCartType,
   ResetCartType,
 } from '../../types/types';
 import { ACTIONS } from './actions';
 
-function totalPrice(items: ProductType[]) {
+function totalPrice(items: dummyProductType[]) {
   return items.reduce((acc, item) => {
     acc = acc + item.price * item.quantity;
     return acc;
@@ -84,23 +85,15 @@ function reducer(state: CartType, action: CartActions) {
   }
 }
 
-const addProduct = ({
-  name,
-  price,
-  id,
-  quantity,
-}: ProductType): AddToCartType => ({
+const addProduct = (product: dummyProductType): AddToCartType => ({
   type: ACTIONS.ADD,
-  payload: { id, name, price, quantity },
+  payload: product,
 });
-const decreaseProductQuantity = ({
-  name,
-  price,
-  id,
-  quantity,
-}: ProductType): RemoveFromCartType => ({
+const decreaseProductQuantity = (
+  product: dummyProductType
+): RemoveFromCartType => ({
   type: ACTIONS.DELETE,
-  payload: { id, name, price, quantity },
+  payload: product,
 });
 const resetCart = (): ResetCartType => ({ type: ACTIONS.RESET });
 

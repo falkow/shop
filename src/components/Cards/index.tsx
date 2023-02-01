@@ -1,18 +1,18 @@
 import React from 'react';
 import CartProvider from '../../context/Cart/CartProvider';
+import { DataType } from '../../types/types';
 
-import * as data from '../../data/data.json';
 import { Card } from '../Card';
 import styles from './Cards.module.scss';
 
 const { wrapperContainer } = styles;
 
-const Cards = () => {
+const Cards = ({ products }: DataType) => {
   return (
     <CartProvider>
       <div className={wrapperContainer}>
-        {data.items.map((data) => (
-          <Card key={data.id} {...data} />
+        {products.map((product) => (
+          <Card key={product.id} {...product} />
         ))}
       </div>
     </CartProvider>
