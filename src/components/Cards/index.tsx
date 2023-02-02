@@ -9,13 +9,11 @@ const { wrapperContainer } = styles;
 
 const Cards = ({ products }: DataType) => {
   return (
-    <CartProvider>
-      <div className={wrapperContainer}>
-        {products.map((product) => (
-          <Card key={product.id} {...product} />
-        ))}
-      </div>
-    </CartProvider>
+    <div className={wrapperContainer}>
+      {products.map((product) => (
+        <Card key={product.id} {...product} />
+      ))}
+    </div>
   );
 };
 
