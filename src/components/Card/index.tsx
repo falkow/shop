@@ -9,17 +9,19 @@ import styles from './Card.module.scss';
 
 const { card } = styles;
 
-export const Card = (product: dummyProductType) => {
+type DummyCard = dummyProductType & { innerRef?: any };
+
+export const Card = ({ ...product }: DummyCard) => {
   const { cartState, dispatch } = useContext(CartCtx);
 
-  const { id, title, price, quantity } = product;
+  const { id, title, price, quantity, innerRef } = product;
 
   const quantityInCart = cartState.items.find(
     (item) => item.id === id
   )?.quantity;
 
   return (
-    <div className={card} key={id}>
+    <div className={card} key={id} ref={innerRef}>
       <div>{title}</div>
       <div>{price}</div>
       <div>{quantity}</div>
