@@ -4,12 +4,10 @@ import {
   addProduct,
   decreaseProductQuantity,
 } from '../../context/Cart/reducer';
-import { dummyProductType, ProductType } from '../../types/types';
+import { DummyCard } from '../../types/types';
 import styles from './Card.module.scss';
 
 const { card } = styles;
-
-type DummyCard = dummyProductType & { innerRef?: any };
 
 export const Card = ({ ...product }: DummyCard) => {
   const { cartState, dispatch } = useContext(CartCtx);

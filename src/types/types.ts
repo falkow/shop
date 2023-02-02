@@ -26,6 +26,9 @@ type dummyProductType = {
   thumbnail: string;
   images: Array<string>;
 };
+
+type DummyCard = dummyProductType & { innerRef?: any };
+
 type DataType = {
   products: dummyProductType[];
 };
@@ -60,4 +63,5 @@ export type {
   RemoveFromCartType,
   AddToCartType,
   DataType,
+  DummyCard,
 };

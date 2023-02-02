@@ -3,7 +3,7 @@ import axios, { Canceler } from 'axios';
 import { useEffect, useState } from 'react';
 import { dummyProductType } from '../types/types';
 
-export const useFetch = (limit: any) => {
+export const useFetch = (limit: number) => {
   const [products, setProducts] = useState<dummyProductType[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [hasMore, setHasMore] = useState(false);
@@ -21,7 +21,6 @@ export const useFetch = (limit: any) => {
           cancelToken: new axios.CancelToken((c) => (cancel = c)),
         })
           .then((response) => {
-            console.log(response);
             setProducts((prev) => {
               return [...new Set([...prev, ...response.data.products])];
             });
