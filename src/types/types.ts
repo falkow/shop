@@ -1,10 +1,12 @@
 import { ACTIONS } from '../context/Cart/actions';
 
 type AddToCartType = { type: typeof ACTIONS.ADD; payload: dummyProductType };
+
 type RemoveFromCartType = {
   type: typeof ACTIONS.DELETE;
   payload: dummyProductType;
 };
+
 type ResetCartType = { type: typeof ACTIONS.RESET };
 // type AddToCartType = { type: typeof ACTIONS.ADD; payload: ProductType };
 // type RemoveFromCartType = { type: typeof ACTIONS.DELETE; payload: ProductType };
