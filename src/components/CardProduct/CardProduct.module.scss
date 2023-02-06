@@ -1,9 +1,9 @@
 .card {
   margin: 10px 5px;
   width: 250px;
-  height: 250px;
+  // height: 250px;
   background-color: aquamarine;
-  border-radius: 12px;
+  border-radius: 12px !important;
   display: flex;
   flex-direction: column;
   &:hover {

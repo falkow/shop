@@ -1,3 +1,4 @@
+import { LegacyRef } from 'react';
 import { ACTIONS } from '../context/Cart/actions';
 
 type AddToCartType = { type: typeof ACTIONS.ADD; payload: dummyProductType };
@@ -29,7 +30,9 @@ type dummyProductType = {
   images: Array<string>;
 };
 
-type DummyCard = dummyProductType & { innerRef?: any };
+type DummyCard = dummyProductType & {
+  innerRef?: any;
+};
 
 type DataType = {
   products: dummyProductType[];

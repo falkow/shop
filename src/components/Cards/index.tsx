@@ -1,15 +1,16 @@
 import { dividerClasses } from '@mui/material';
 import React, { useCallback, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useFetch } from '../../hooks/useFetch';
 
-import { Card } from '../Card';
+import { CardProduct } from '../CardProduct';
 import styles from './Cards.module.scss';
 
 const { wrapperContainer } = styles;
 
 const Cards = () => {
   const [limit, setLimit] = useState(10);
-  const { products, isLoading, hasMore } = useFetch(limit);
+  const { products, isLoading, hasMore } = useFetch({ limit: limit });
 
   const observer = useRef<IntersectionObserver | null>(null);
 
@@ -36,14 +37,20 @@ const Cards = () => {
       {products.map((product, index) => {
         if (products.length === index + 1) {
           return (
-            <Card
-              key={`${index} ${product.title}`}
-              {...product}
-              innerRef={lastProduct}
-            />
+            <Link to={`books/${index + 1}`}>
+              <CardProduct
+                key={`${index} ${product.title}`}
+                {...product}
+                innerRef={lastProduct}
+              />
+            </Link>
           );
         } else {
-          return <Card key={`${index} ${product.title}`} {...product} />;
+          return (
+            <Link to={`books/${index + 1}`}>
+              <CardProduct key={`${index} ${product.title}`} {...product} />
+            </Link>
+          );
         }
       })}
     </div>
