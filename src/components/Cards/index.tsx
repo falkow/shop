@@ -1,7 +1,12 @@
-import { dividerClasses } from '@mui/material';
-import React, { useCallback, useRef, useState } from 'react';
+import React, {
+  useCallback,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 import { Link } from 'react-router-dom';
-import { useFetch } from '../../hooks/useFetch';
+import { ProductCtx } from '../../context/Product/ProductContext';
 
 import { CardProduct } from '../CardProduct';
 import styles from './Cards.module.scss';
@@ -10,7 +15,8 @@ const { wrapperContainer } = styles;
 
 const Cards = () => {
   const [limit, setLimit] = useState(10);
-  const { products, isLoading, hasMore } = useFetch({ limit: limit });
+
+  const { products, isLoading, hasMore, fetchData } = useContext(ProductCtx);
 
   const observer = useRef<IntersectionObserver | null>(null);
 
@@ -27,10 +33,16 @@ const Cards = () => {
           setLimit((prev) => prev + 10);
         }
       });
-      if (node) observer.current.observe(node);
+      if (node) {
+        observer.current.observe(node);
+      }
     },
     [isLoading, hasMore]
   );
+
+  useEffect(() => {
+    fetchData(limit);
+  }, [limit]);
 
   return (
     <div className={wrapperContainer}>

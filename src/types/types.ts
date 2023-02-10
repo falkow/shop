@@ -1,21 +1,17 @@
-import { LegacyRef } from 'react';
 import { ACTIONS } from '../context/Cart/actions';
 
-type AddToCartType = { type: typeof ACTIONS.ADD; payload: dummyProductType };
+type AddToCartType = { type: typeof ACTIONS.ADD; payload: DummyProductType };
 
 type RemoveFromCartType = {
   type: typeof ACTIONS.DELETE;
-  payload: dummyProductType;
+  payload: DummyProductType;
 };
 
 type ResetCartType = { type: typeof ACTIONS.RESET };
-// type AddToCartType = { type: typeof ACTIONS.ADD; payload: ProductType };
-// type RemoveFromCartType = { type: typeof ACTIONS.DELETE; payload: ProductType };
-// type ResetCartType = { type: typeof ACTIONS.RESET };
 
 type CartActions = AddToCartType | RemoveFromCartType | ResetCartType;
 
-type dummyProductType = {
+type DummyProductType = {
   id: number;
   title: string;
   description: string;
@@ -30,12 +26,12 @@ type dummyProductType = {
   images: Array<string>;
 };
 
-type DummyCard = dummyProductType & {
+type DummyCard = DummyProductType & {
   innerRef?: any;
 };
 
 type DataType = {
-  products: dummyProductType[];
+  products: DummyProductType[];
 };
 
 type ProductType = {
@@ -46,7 +42,7 @@ type ProductType = {
 };
 
 type CartType = {
-  items: dummyProductType[];
+  items: DummyProductType[];
   price: number;
 };
 
@@ -54,12 +50,20 @@ interface ICartCtx {
   cartState: CartType;
   dispatch: React.Dispatch<CartActions>;
 }
+interface IProductCtx {
+  products: DummyProductType[];
+  isLoading: boolean;
+  hasMore: boolean;
+  error: boolean;
+  fetchData: (limit: number) => Promise<() => void>;
+}
 
 type CartProviderType = { children: React.ReactNode };
+type ProductProviderType = { children: React.ReactNode };
 
 export type {
   ProductType,
-  dummyProductType,
+  DummyProductType,
   CartType,
   CartActions,
   ICartCtx,
@@ -69,4 +73,6 @@ export type {
   AddToCartType,
   DataType,
   DummyCard,
+  IProductCtx,
+  ProductProviderType,
 };

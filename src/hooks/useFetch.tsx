@@ -1,19 +1,13 @@
 import axios, { Canceler } from 'axios';
 
 import { useEffect, useState } from 'react';
-import { Navigate } from 'react-router-dom';
-import { dummyProductType } from '../types/types';
+import { DummyProductType } from '../types/types';
 
 export const useFetch = ({ limit, id }: any) => {
-  const [products, setProducts] = useState<dummyProductType[]>([]);
+  const [products, setProducts] = useState<DummyProductType[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [hasMore, setHasMore] = useState(false);
-  const [error, setError] = useState(false);
-
-  // let url =
-  //   id === null || id === undefined
-  //     ? `https://dummyjson.com/products/`
-  //     : `https://dummyjson.com/products/${id}`;
+  const [error, setError] = useState(0);
 
   useEffect(() => {
     let cancel: Canceler;
@@ -36,31 +30,29 @@ export const useFetch = ({ limit, id }: any) => {
       {
         await axios(config)
           .then((response) => {
-            console.log(response);
             if (Object.hasOwn(config, 'params')) {
               setProducts((prev) => {
+                console.log([...prev, ...response.data.products]);
+
                 return [...prev, ...response.data.products];
               });
             } else {
-              console.log(response.data);
-              setProducts({ ...response.data });
+              console.log([response.data]);
+              setProducts([response.data]);
             }
-            /* return [...new Set([...prev, ...response.data.products])];
-            }); */
+
             if (products.length < response.data.total) setHasMore(true);
             setIsLoading(false);
           })
           .catch((err) => {
-            // const { response } = err.response.data
-            // if(response.statusText===404) Navigate('/errorpage')
             if (axios.isCancel(err)) return;
-            setError(true);
+            console.log(err);
+            setError(err.response.status);
           });
       }
     }
     fetchData();
     return () => cancel();
-    // })()
   }, [limit, id]);
 
   return { products, isLoading, error, hasMore };
