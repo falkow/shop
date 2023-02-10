@@ -17,13 +17,13 @@ type DummyProductType = {
   description: string;
   price: number;
   discountPercentage: number;
-  quantity: number;
   rating: number;
   stock: number;
   brand: string;
   category: string;
   thumbnail: string;
   images: Array<string>;
+  quantity: number;
 };
 
 type DummyCard = DummyProductType & {
@@ -32,13 +32,6 @@ type DummyCard = DummyProductType & {
 
 type DataType = {
   products: DummyProductType[];
-};
-
-type ProductType = {
-  name: string;
-  price: number;
-  id: string;
-  quantity: number;
 };
 
 type CartType = {
@@ -62,7 +55,6 @@ type CartProviderType = { children: React.ReactNode };
 type ProductProviderType = { children: React.ReactNode };
 
 export type {
-  ProductType,
   DummyProductType,
   CartType,
   CartActions,

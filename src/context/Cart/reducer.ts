@@ -2,14 +2,13 @@ import {
   AddToCartType,
   CartActions,
   CartType,
-  dummyProductType,
-  ProductType,
+  DummyProductType,
   RemoveFromCartType,
   ResetCartType,
 } from '../../types/types';
 import { ACTIONS } from './actions';
 
-function totalPrice(items: dummyProductType[]) {
+function totalPrice(items: DummyProductType[]) {
   return items.reduce((acc, item) => {
     acc = acc + item.price * item.quantity;
     return acc;
@@ -57,23 +56,6 @@ function reducer(state: CartType, action: CartActions) {
               }
             });
 
-      // let items = [];
-      // if (found === -1) {
-
-      //   items = [...state.items];
-      // } else {
-      //   items =
-      //     state.items[found].quantity === 1
-      //       ? state.items.filter((item) => item.id !== action.payload.id)
-      //       : state.items.map((item, index) => {
-      //           if (index === found) {
-      //             return { ...item, quantity: item.quantity - 1 };
-      //           } else {
-      //             return item;
-      //           }
-      //         });
-      // }
-
       console.log({ items: items, price: totalPrice(items) });
       return { items: items, price: totalPrice(items) };
     }
@@ -85,12 +67,12 @@ function reducer(state: CartType, action: CartActions) {
   }
 }
 
-const addProduct = (product: dummyProductType): AddToCartType => ({
+const addProduct = (product: DummyProductType): AddToCartType => ({
   type: ACTIONS.ADD,
   payload: product,
 });
 const decreaseProductQuantity = (
-  product: dummyProductType
+  product: DummyProductType
 ): RemoveFromCartType => ({
   type: ACTIONS.DELETE,
   payload: product,
