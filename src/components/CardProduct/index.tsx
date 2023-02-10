@@ -35,7 +35,7 @@ export const CardProduct = ({ ...product }: DummyCard) => {
   };
 
   return (
-    <Card className={card} key={id} ref={innerRef} sx={{ height: '300px' }}>
+    <Card className={card} ref={innerRef} sx={{ height: '300px' }}>
       {/* <div>{title}</div> */}
       {/* <div>{price}</div> */}
       {/* <div>{quantity}</div> */}

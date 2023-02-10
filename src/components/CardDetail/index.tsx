@@ -11,7 +11,7 @@ import { ProductCtx } from '../../context/Product/ProductContext';
 
 export const CardDetail = () => {
   const { id } = useParams();
-  const { products, isLoading, hasMore, fetchData } = useContext(ProductCtx);
+  const { products, isLoading } = useContext(ProductCtx);
 
   if (id !== undefined) {
     return (

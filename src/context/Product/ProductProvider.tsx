@@ -1,5 +1,6 @@
 import axios, { Canceler } from 'axios';
 import React, { useCallback, useState } from 'react';
+import { Navigate } from 'react-router-dom';
 import { DummyProductType, ProductProviderType } from '../../types/types';
 import { ProductCtx } from './ProductContext';
 
@@ -29,8 +30,6 @@ const ProductProvider = ({ children }: ProductProviderType) => {
           setIsLoading(false);
         })
         .catch((err) => {
-          // const { response } = err.response.data
-          // if(response.statusText===404) Navigate('/errorpage')
           if (axios.isCancel(err)) return;
           setError(true);
         });

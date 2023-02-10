@@ -22,7 +22,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
           <Route
             path='/books/:id'
             element={<CardDetail />}
-            // errorElement={<NotFound />}
+            errorElement={<NotFound />}
           />
           <Route path='*' element={<NotFound />} />
           {/* <Route path='/' element={<Test />} /> */}
