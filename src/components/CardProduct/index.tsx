@@ -13,6 +13,7 @@ import {
   decreaseProductQuantity,
 } from '../../context/Cart/reducer';
 import { DummyCard } from '../../types/types';
+import StarScore from '../StarScore';
 import styles from './CardProduct.module.scss';
 
 const { card } = styles;
@@ -20,7 +21,7 @@ const { card } = styles;
 export const CardProduct = ({ ...product }: DummyCard) => {
   const { cartState, dispatch } = useContext(CartCtx);
 
-  const { id, title, price, quantity, innerRef } = product;
+  const { id, title, price, quantity, innerRef, rating } = product;
 
   const quantityInCart = cartState.items.find(
     (item) => item.id === id
@@ -47,7 +48,7 @@ export const CardProduct = ({ ...product }: DummyCard) => {
       <CardContent sx={{ padding: '5px' }}>
         <Typography variant='body2'>{currencyFormatter(price)}</Typography>
       </CardContent>
-
+      <StarScore rating={rating} />
       <Button onClick={() => dispatch(addProduct(product))}>Add to Cart</Button>
     </Card>
   );

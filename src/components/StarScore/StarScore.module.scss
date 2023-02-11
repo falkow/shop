@@ -1,0 +1,14 @@
+.rating {
+  &Wrapper {
+    display: flex;
+    font-size: 12px;
+    & svg {
+      height: 12px;
+      width: 12px;
+      padding: 0 3px;
+    }
+  }
+  &Number {
+    padding-left: 5px;
+  }
+}
