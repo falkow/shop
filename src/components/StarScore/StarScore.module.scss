@@ -1,10 +1,11 @@
 .rating {
   &Wrapper {
     display: flex;
-    font-size: 12px;
+    font-size: 16px;
+    padding: 5px;
     & svg {
-      height: 12px;
-      width: 12px;
+      height: 16px;
+      width: 16px;
       padding: 0 3px;
     }
   }

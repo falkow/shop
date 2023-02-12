@@ -6,6 +6,7 @@ import {
   CardMedia,
   Typography,
 } from '@mui/material';
+import { alignProperty } from '@mui/material/styles/cssUtils';
 import React, { useContext } from 'react';
 import { CartCtx } from '../../context/Cart/CartContext';
 import {
@@ -16,7 +17,7 @@ import { DummyCard } from '../../types/types';
 import StarScore from '../StarScore';
 import styles from './CardProduct.module.scss';
 
-const { card } = styles;
+const { card, cardHeader } = styles;
 
 export const CardProduct = ({ ...product }: DummyCard) => {
   const { cartState, dispatch } = useContext(CartCtx);
@@ -36,20 +37,41 @@ export const CardProduct = ({ ...product }: DummyCard) => {
   };
 
   return (
-    <Card className={card} ref={innerRef} sx={{ height: '300px' }}>
+    <Card
+      className={card}
+      ref={innerRef}
+      sx={{
+        borderRadius: '12px',
+        position: 'relative',
+        height: '300px',
+      }}>
       {/* <div>{title}</div> */}
       {/* <div>{price}</div> */}
       {/* <div>{quantity}</div> */}
       <CardMedia
         component='img'
         image={product.thumbnail}
-        sx={{ height: '140px', objectFit: 'cover' }}></CardMedia>
-      <CardHeader title={title} sx={{ padding: '5px' }}></CardHeader>
+        sx={{
+          height: '140px',
+          objectFit: 'cover',
+        }}></CardMedia>
+      <CardHeader
+        className={cardHeader}
+        title={title}
+        sx={{ padding: '5px' }}></CardHeader>
+      <StarScore rating={rating} />
       <CardContent sx={{ padding: '5px' }}>
         <Typography variant='body2'>{currencyFormatter(price)}</Typography>
       </CardContent>
-      <StarScore rating={rating} />
-      <Button onClick={() => dispatch(addProduct(product))}>Add to Cart</Button>
+
+      <Button
+        onClick={(e) => {
+          e.preventDefault();
+          dispatch(addProduct(product));
+        }}
+        sx={{ position: 'absolute', bottom: '0', left: 'calc(50% - 64px)' }}>
+        Add to Cart
+      </Button>
     </Card>
   );
 };

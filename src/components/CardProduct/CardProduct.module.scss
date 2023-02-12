@@ -1,9 +1,10 @@
+@import '../../styles/variables';
 .card {
   margin: 10px 5px;
-  width: 250px;
+  width: 300px;
   // height: 250px;
-  background-color: aquamarine;
-  border-radius: 12px !important;
+  // background-color: aquamarine;
+  // border-radius: 12px !important;
   display: flex;
   flex-direction: column;
   &:hover {
@@ -11,5 +12,12 @@
       rgb(0 0 0 / 8%) 0px 0px 2px 1px;
     transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
     border-radius: 12px;
+  }
+  // &Header.MuiCardHeader-root {
+  &Header span {
+    font-family: $fontFamily;
+    font-size: 20px;
+    // font-weight: 500;
+    text-transform: capitalize;
   }
 }

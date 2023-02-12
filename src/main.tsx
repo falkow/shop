@@ -4,12 +4,11 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Cart from './components/Cart';
 import CartProvider from './context/Cart/CartProvider';
 import Navbar from './components/Navbar';
-import { Test } from './components/Test';
 import Cards from './components/Cards';
-import { CardProduct } from './components/CardProduct';
 import { CardDetail } from './components/CardDetail';
 import { NotFound } from './components/NotFound';
 import ProductProvider from './context/Product/ProductProvider';
+import './styles/global.scss';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <ProductProvider>
