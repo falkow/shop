@@ -9,6 +9,7 @@ import { CardDetail } from './components/CardDetail';
 import { NotFound } from './components/NotFound';
 import ProductProvider from './context/Product/ProductProvider';
 import './styles/global.scss';
+import { Home } from './components/Home';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <ProductProvider>
@@ -16,10 +17,11 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
       <BrowserRouter>
         <Navbar />
         <Routes>
-          <Route path='/' element={<Cards />} />
+          <Route path='/' element={<Home />} />
+          <Route path='/shop' element={<Cards />} />
           <Route path='/cart' element={<Cart />} />
           <Route
-            path='/books/:id'
+            path='/shop/:id'
             element={<CardDetail />}
             errorElement={<NotFound />}
           />

@@ -1,6 +1,6 @@
 @import '../../styles/variables';
 .card {
-  margin: 10px 5px;
+  margin: 10px 0px;
   width: 300px;
   // height: 250px;
   // background-color: aquamarine;
@@ -19,5 +19,12 @@
     font-size: 20px;
     // font-weight: 500;
     text-transform: capitalize;
+  }
+  &Price p,
+  button {
+    font-family: $fontFamily;
+  }
+  &Button {
+    font-family: $fontFamily;
   }
 }

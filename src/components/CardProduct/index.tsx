@@ -17,7 +17,7 @@ import { DummyCard } from '../../types/types';
 import StarScore from '../StarScore';
 import styles from './CardProduct.module.scss';
 
-const { card, cardHeader } = styles;
+const { card, cardHeader, cardPrice, cardButton } = styles;
 
 export const CardProduct = ({ ...product }: DummyCard) => {
   const { cartState, dispatch } = useContext(CartCtx);
@@ -60,18 +60,18 @@ export const CardProduct = ({ ...product }: DummyCard) => {
         title={title}
         sx={{ padding: '5px' }}></CardHeader>
       <StarScore rating={rating} />
-      <CardContent sx={{ padding: '5px' }}>
+      <CardContent sx={{ padding: '5px' }} className={cardPrice}>
         <Typography variant='body2'>{currencyFormatter(price)}</Typography>
+        <Button
+          onClick={(e) => {
+            e.preventDefault();
+            dispatch(addProduct(product));
+          }}
+          sx={{ position: 'absolute', bottom: '0', left: 'calc(50% - 64px)' }}
+          className={cardButton}>
+          Add to Cart
+        </Button>
       </CardContent>
-
-      <Button
-        onClick={(e) => {
-          e.preventDefault();
-          dispatch(addProduct(product));
-        }}
-        sx={{ position: 'absolute', bottom: '0', left: 'calc(50% - 64px)' }}>
-        Add to Cart
-      </Button>
     </Card>
   );
 };

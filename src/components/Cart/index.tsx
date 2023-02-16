@@ -3,11 +3,11 @@ import { CartCtx } from '../../context/Cart/CartContext';
 
 import styles from './Cards.module.scss';
 
-const {} = styles;
+const { wrapper } = styles;
 
 const Cart = () => {
   const { cartState } = useContext(CartCtx);
-  return <p>{cartState.price}</p>;
+  return <div className={wrapper}>{cartState.price}</div>;
 };
 
 export default Cart;

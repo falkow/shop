@@ -49,13 +49,13 @@ const Cards = () => {
       {products.map((product, index) => {
         if (products.length === index + 1) {
           return (
-            <Link to={`books/${product.id.toString()}`} key={product.id}>
+            <Link to={`${product.id.toString()}`} key={product.id}>
               <CardProduct {...product} innerRef={lastProduct} />
             </Link>
           );
         } else {
           return (
-            <Link to={`books/${product.id}`} key={product.id.toString()}>
+            <Link to={`${product.id}`} key={product.id.toString()}>
               <CardProduct {...product} />
             </Link>
           );
