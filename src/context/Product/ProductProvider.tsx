@@ -73,7 +73,7 @@ const ProductProvider = ({ children }: ProductProviderType) => {
         error,
         categories,
         fetchData,
-        fetchCategories,
+        // fetchCategories,
       }}>
       {children}
     </ProductCtx.Provider>

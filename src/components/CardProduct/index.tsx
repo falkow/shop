@@ -6,7 +6,6 @@ import {
   CardMedia,
   Typography,
 } from '@mui/material';
-import { alignProperty } from '@mui/material/styles/cssUtils';
 import React, { useContext } from 'react';
 import { CartCtx } from '../../context/Cart/CartContext';
 import {
@@ -14,27 +13,16 @@ import {
   decreaseProductQuantity,
 } from '../../context/Cart/reducer';
 import { DummyCard } from '../../types/types';
+import { currencyFormatter } from '../../utils/currencyFormatter';
 import StarScore from '../StarScore';
 import styles from './CardProduct.module.scss';
 
 const { card, cardHeader, cardPrice, cardButton } = styles;
 
 export const CardProduct = ({ ...product }: DummyCard) => {
-  const { cartState, dispatch } = useContext(CartCtx);
+  const { dispatch } = useContext(CartCtx);
 
-  const { id, title, price, quantity, innerRef, rating } = product;
-
-  const quantityInCart = cartState.items.find(
-    (item) => item.id === id
-  )?.quantity;
-
-  const currencyFormatter = (number: number) => {
-    const CURRENCY_FORMATTER = new Intl.NumberFormat(undefined, {
-      currency: 'PLN',
-      style: 'currency',
-    });
-    return CURRENCY_FORMATTER.format(number);
-  };
+  const { title, price, innerRef, rating } = product;
 
   return (
     <Card

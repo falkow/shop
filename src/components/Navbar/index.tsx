@@ -6,15 +6,15 @@ import { BehindGreenDoor } from '../../images/BehindGreenDoor';
 import ShoppingCart from '../../images/shopping_cart.svg';
 import style from './Navbar.module.scss';
 
-const { header, headerLink, headerWrapper,headerLinks } = style;
+const { header, headerLink, headerWrapper, headerLinks } = style;
 
 const Navbar = () => {
-  const { categories, fetchCategories } = useContext(ProductCtx);
+  // const { } = useContext(ProductCtx);
   // console.log(useLocation());
-  console.log(categories);
+  // console.log(categories);
 
   useEffect(() => {
-    fetchCategories();
+    // fetchCategories();
   }, []);
 
   return (

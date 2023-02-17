@@ -43,19 +43,18 @@ const Cards = () => {
   useEffect(() => {
     fetchData(limit);
   }, [limit]);
-
   return (
     <div className={wrapperContainer}>
       {products.map((product, index) => {
         if (products.length === index + 1) {
           return (
-            <Link to={`${product.id.toString()}`} key={product.id}>
+            <Link to={`${index}`} key={product.id}>
               <CardProduct {...product} innerRef={lastProduct} />
             </Link>
           );
         } else {
           return (
-            <Link to={`${product.id}`} key={product.id.toString()}>
+            <Link to={`${index}`} key={product.id}>
               <CardProduct {...product} />
             </Link>
           );

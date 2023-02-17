@@ -12,7 +12,7 @@ type ResetCartType = { type: typeof ACTIONS.RESET };
 type CartActions = AddToCartType | RemoveFromCartType | ResetCartType;
 
 type DummyProductType = {
-  id: number;
+  id: string;
   title: string;
   description: string;
   price: number;
@@ -50,7 +50,7 @@ interface IProductCtx {
   error: boolean;
   categories: Array<string>;
   fetchData: (limit: number) => Promise<() => void>;
-  fetchCategories: () => Promise<() => void>;
+  // fetchCategories: () => Promise<() => void>;
 }
 
 type CartProviderType = { children: React.ReactNode };
