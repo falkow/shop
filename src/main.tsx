@@ -10,11 +10,13 @@ import { NotFound } from './components/NotFound';
 import ProductProvider from './context/Product/ProductProvider';
 import './styles/global.scss';
 import { Home } from './components/Home';
+import ScrollToTop from './utils/ScrollToTop';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <ProductProvider>
     <CartProvider>
       <BrowserRouter>
+        <ScrollToTop />
         <Navbar />
         <Routes>
           <Route path='/' element={<Home />} />

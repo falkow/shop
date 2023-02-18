@@ -12,7 +12,7 @@ type ResetCartType = { type: typeof ACTIONS.RESET };
 type CartActions = AddToCartType | RemoveFromCartType | ResetCartType;
 
 type DummyProductType = {
-  id: string;
+  id: number;
   title: string;
   description: string;
   price: number;
