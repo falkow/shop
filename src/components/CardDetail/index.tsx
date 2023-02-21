@@ -29,7 +29,9 @@ const {
   wrapperContentImage,
   wrapperContentSlidersUpper,
   wrapperThumb,
+  wrapperThumbNail,
   wrapperThumbnails,
+  wrapperThumbImage,
 } = styles;
 
 export const CardDetail = () => {
@@ -79,17 +81,21 @@ export const CardDetail = () => {
                     </div>
                   ))}
                 </div>
-                <div className='keen-slider thumbnail' ref={thumbnailRef}>
+                <div
+                  className={`keen-slider thumbnail ${wrapperThumbnails}`}
+                  ref={thumbnailRef}>
                   {images.map((image, index) => {
                     // console.log(currentSlider === index);/
                     return (
                       <div
                         className={`keen-slider__slide number-slide${
                           index + 1
-                        } ${currentSlider === index ? wrapperThumb : ''}
-                          ${wrapperThumbnails}`}
+                        } ${wrapperThumb}`}
                         key={index}>
-                        <img src={image} alt='' />
+                        <img src={image} className={wrapperThumbImage} alt='' />
+                        {currentSlider === index && (
+                          <div className={wrapperThumbNail}></div>
+                        )}
                       </div>
                     );
                   })}
