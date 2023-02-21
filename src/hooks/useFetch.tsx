@@ -32,12 +32,9 @@ export const useFetch = ({ limit, id }: any) => {
           .then((response) => {
             if (Object.hasOwn(config, 'params')) {
               setProducts((prev) => {
-                console.log([...prev, ...response.data.products]);
-
                 return [...prev, ...response.data.products];
               });
             } else {
-              console.log([response.data]);
               setProducts([response.data]);
             }
 
@@ -46,7 +43,6 @@ export const useFetch = ({ limit, id }: any) => {
           })
           .catch((err) => {
             if (axios.isCancel(err)) return;
-            console.log(err);
             setError(err.response.status);
           });
       }

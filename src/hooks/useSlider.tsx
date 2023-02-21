@@ -3,7 +3,14 @@ import {
   KeenSliderPlugin,
   useKeenSlider,
 } from 'keen-slider/react';
-import React, { MutableRefObject, useCallback } from 'react';
+import React, {
+  MouseEventHandler,
+  MutableRefObject,
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react';
 
 function ThumbnailPlugin(
   mainRef: MutableRefObject<KeenSliderInstance | null>
@@ -41,35 +48,48 @@ function ThumbnailPlugin(
 }
 
 export const useSlider = () => {
+  const [currentSlider, setCurrentSlide] = useState(0);
   const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
     initial: 0,
+    loop: false,
+    slideChanged(slider) {
+      setCurrentSlide(slider.track.details.rel);
+    },
   });
 
   const [thumbnailRef] = useKeenSlider<HTMLDivElement>(
     {
       initial: 0,
+      loop: false,
+
       slides: {
         perView: 4,
-        // spacing: 10,
+        spacing: 10,
       },
     },
     [ThumbnailPlugin(instanceRef)]
   );
 
-  const handleSlidePrev = useCallback(
-    (e: React.MouseEvent<HTMLButtonElement>): void => {
-      e.stopPropagation();
-      if (instanceRef.current) instanceRef.current.prev();
-    },
-    []
-  );
+  const handleSlidePrev = useCallback((e: any): void => {
+    // (e: /* MouseEventHandler<HTMLElement> */): void => {
+    // e.preventDefault();
+    e.stopPropagation();
 
-  const handleSlideNext = useCallback(
-    (e: React.MouseEvent<HTMLButtonElement>): void => {
-      e.stopPropagation();
-      if (instanceRef.current) instanceRef.current.next();
-    },
-    []
-  );
-  return { sliderRef, thumbnailRef, handleSlidePrev, handleSlideNext };
+    if (instanceRef.current) instanceRef.current.prev();
+  }, []);
+
+  const handleSlideNext = useCallback((e: any): void => {
+    // e.preventDefault();
+
+    e.stopPropagation();
+    if (instanceRef.current) instanceRef.current.next();
+  }, []);
+
+  return {
+    sliderRef,
+    thumbnailRef,
+    handleSlidePrev,
+    handleSlideNext,
+    currentSlider,
+  };
 };

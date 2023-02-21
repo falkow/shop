@@ -2,8 +2,8 @@ import axios, { Canceler } from 'axios';
 import React, { useContext, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { ProductCtx } from '../../context/Product/ProductContext';
-import { BehindGreenDoor } from '../../images/BehindGreenDoor';
-import ShoppingCart from '../../images/shopping_cart.svg';
+import { BehindGreenDoor } from '../../assets/BehindGreenDoor';
+import ShoppingCart from '../../assets/shopping_cart.svg';
 import style from './Navbar.module.scss';
 
 const { header, headerLink, headerWrapper, headerLinks } = style;

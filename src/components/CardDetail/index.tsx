@@ -16,46 +16,84 @@ import StarScore from '../StarScore';
 import { CartCtx } from '../../context/Cart/CartContext';
 import { addProduct } from '../../context/Cart/reducer';
 import { currencyFormatter } from '../../utils/currencyFormatter';
+import { ModalArrowSVG } from '../../assets/ModalArrowSVG';
 
-const { wrapper, wrapperContent, wrapperContentSliders, wrapperContentSide } =
-  styles;
+const {
+  wrapper,
+  wrapperContent,
+  wrapperContentSliders,
+  wrapperContentSide,
+  wrapperContentArrows,
+  wrapperContentArrowsLeft,
+  wrapperContentArrowsRight,
+  wrapperContentImage,
+  wrapperContentSlidersUpper,
+  wrapperThumb,
+} = styles;
 
 export const CardDetail = () => {
   const { id } = useParams();
   const { dispatch } = useContext(CartCtx);
   const { products, isLoading } = useContext(ProductCtx);
-  const { sliderRef, thumbnailRef } = useSlider();
   if (id !== undefined) {
+    const {
+      sliderRef,
+      thumbnailRef,
+      handleSlideNext,
+      handleSlidePrev,
+      currentSlider,
+    } = useSlider();
+
+    console.log(currentSlider);
     const product = products[Number.parseInt(id)];
     const { title, rating, images, description, price } = product;
-    console.log(products[Number.parseInt(id)]);
     return (
       <div className={wrapper}>
         {products.length > 0 && (
           <Card>
             <div className={wrapperContent}>
               <div className={wrapperContentSliders}>
-                <div className='keen-slider' ref={sliderRef}>
+                <div
+                  className={`keen-slider ${wrapperContentSlidersUpper}`}
+                  ref={sliderRef}>
+                  <div className={wrapperContentArrows}>
+                    <a
+                      className={wrapperContentArrowsLeft}
+                      onClick={handleSlidePrev}>
+                      <ModalArrowSVG />
+                    </a>
+                    <a
+                      className={wrapperContentArrowsRight}
+                      onClick={handleSlideNext}>
+                      <ModalArrowSVG />
+                    </a>
+                  </div>
+
                   {images.map((image, index) => (
                     <div
                       className={`keen-slider__slide number-slide${index + 1}`}
                       key={index}>
-                      <img src={image} alt='' />
+                      <img src={image} alt='' className={wrapperContentImage} />
                     </div>
                   ))}
                 </div>
-                <div
-                  className='keen-slider thumbnail wrapperThumb'
-                  ref={thumbnailRef}>
-                  {images.map((image, index) => (
-                    <div
-                      className={`keen-slider__slide number-slide${
-                        index + 1
-                      } thumbnail`}
-                      key={index}>
-                      <img src={image} alt='' />
-                    </div>
-                  ))}
+                <div className='keen-slider thumbnail' ref={thumbnailRef}>
+                  {images.map((image, index) => {
+                    // console.log(currentSlider === index);/
+                    return (
+                      <div
+                        className={`keen-slider__slide number-slide${
+                          index + 1
+                        } ${wrapperThumb} `}
+                        style={{
+                          border:
+                            currentSlider === index ? '2px dashed black' : '',
+                        }}
+                        key={index}>
+                        <img src={image} alt='' />
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
               <div className={wrapperContentSide}>

@@ -1,6 +1,6 @@
 import React from 'react';
-import { GrayStar } from '../../images/GrayStar';
-import { YellowStar } from '../../images/YellowStar';
+import { GrayStar } from '../../assets/GrayStar';
+import { YellowStar } from '../../assets/YellowStar';
 import styles from './StarScore.module.scss';
 
 const { ratingWrapper, ratingNumber } = styles;
