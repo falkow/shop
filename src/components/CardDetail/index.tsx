@@ -29,6 +29,7 @@ const {
   wrapperContentImage,
   wrapperContentSlidersUpper,
   wrapperThumb,
+  wrapperThumbnails,
 } = styles;
 
 export const CardDetail = () => {
@@ -44,7 +45,6 @@ export const CardDetail = () => {
       currentSlider,
     } = useSlider();
 
-    console.log(currentSlider);
     const product = products[Number.parseInt(id)];
     const { title, rating, images, description, price } = product;
     return (
@@ -71,9 +71,11 @@ export const CardDetail = () => {
 
                   {images.map((image, index) => (
                     <div
-                      className={`keen-slider__slide number-slide${index + 1}`}
+                      className={`keen-slider__slide number-slide${
+                        index + 1
+                      } ${wrapperContentImage}`}
                       key={index}>
-                      <img src={image} alt='' className={wrapperContentImage} />
+                      <img src={image} alt='' />
                     </div>
                   ))}
                 </div>
@@ -84,11 +86,8 @@ export const CardDetail = () => {
                       <div
                         className={`keen-slider__slide number-slide${
                           index + 1
-                        } ${wrapperThumb} `}
-                        style={{
-                          border:
-                            currentSlider === index ? '2px dashed black' : '',
-                        }}
+                        } ${currentSlider === index ? wrapperThumb : ''}
+                          ${wrapperThumbnails}`}
                         key={index}>
                         <img src={image} alt='' />
                       </div>
