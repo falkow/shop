@@ -1,6 +1,7 @@
 import React from 'react';
 import { GrayStar } from '../../assets/GrayStar';
 import { YellowStar } from '../../assets/YellowStar';
+import { HalfYellowStar } from '../../assets/HalfYellowStar';
 import styles from './StarScore.module.scss';
 
 const { ratingWrapper, ratingNumber } = styles;
@@ -11,10 +12,13 @@ const StarScore = ({ rating }: { rating: number }) => {
   return (
     <div className={ratingWrapper}>
       {[...Array(howManyStars)].map((_, index) => {
-        return Math.round(rating) < index + 1 ? (
-          <GrayStar key={index} />
-        ) : (
+        let number = index + 0.5;
+        return rating >= index + 1 ? (
           <YellowStar key={index} />
+        ) : rating >= number ? (
+          <HalfYellowStar />
+        ) : (
+          <GrayStar key={index} />
         );
       })}
       <div className={ratingNumber}> {rating}</div>
