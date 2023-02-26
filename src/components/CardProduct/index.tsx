@@ -33,16 +33,14 @@ export const CardProduct = ({ ...product }: DummyCard) => {
         position: 'relative',
         height: '300px',
       }}>
-      {/* <div>{title}</div> */}
-      {/* <div>{price}</div> */}
-      {/* <div>{quantity}</div> */}
       <CardMedia
         component='img'
         image={product.thumbnail}
         sx={{
           height: '140px',
           objectFit: 'cover',
-        }}></CardMedia>
+        }}
+      />
       <CardHeader
         className={cardHeader}
         title={title}
