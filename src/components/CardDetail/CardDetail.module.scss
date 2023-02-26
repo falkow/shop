@@ -3,8 +3,7 @@
 .wrapper {
   width: calc(100% - 64px);
   max-width: 1100px;
-  margin: 0 auto;
-  margin: 100px 100px;
+  margin: 100px auto;
 
   &Content {
     display: flex;
@@ -66,18 +65,13 @@
       display: flex;
       flex-direction: column;
       width: 60%;
+      margin: 15px;
 
       // & div:last-of-type {
       //   display: flex;
       //   justify-content: space-evenly;
       // }
 
-      & .keen-slider.thumbnail [class^='number-slide'],
-      .keen-slider.thumbnail [class*='number-slide'] {
-        // border: 2px dashed black;
-        // max-width: 100px !important;
-        // max-height: 100px !important;
-      }
       & .thumbnail div.active {
         // border: 2px dashed black;
       }
@@ -111,6 +105,77 @@
 
     &Side {
       width: 40%;
+      margin: 15px;
+
+      &Header {
+        // padding: 0px !important;
+        margin: 10px;
+        font-size: 2.5rem;
+
+        & span {
+          font-size: 3rem;
+          font-weight: bold;
+        }
+
+        &Stars {
+          margin: 10px;
+        }
+      }
+      &Description {
+        margin: 10px;
+      }
+      &Currency {
+        margin: 10px;
+      }
+      &Button {
+        /* CSS */
+        appearance: none;
+        backface-visibility: hidden;
+        // background-color: #27ae60;
+        background-color: $fontColor;
+        border-radius: 8px;
+        border-style: none;
+        box-shadow: rgba(39, 174, 96, 0.15) 0 4px 9px;
+        box-sizing: border-box;
+        color: #fff;
+        cursor: pointer;
+        display: inline-block;
+        font-family: $fontFamily;
+        // font-family: Inter, -apple-system, system-ui, 'Segoe UI', Helvetica,Arial, sans-serif;
+        font-size: 16px;
+        font-weight: 600;
+        letter-spacing: normal;
+        line-height: 1.5;
+        outline: none;
+        overflow: hidden;
+        padding: 13px 20px;
+        position: relative;
+        text-align: center;
+        text-decoration: none;
+        transform: translate3d(0, 0, 0);
+        transition: all 0.3s;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+        vertical-align: top;
+        white-space: nowrap;
+
+        &:hover {
+          background-color: #1e8449;
+          opacity: 1;
+          transform: translateY(0);
+          transition-duration: 0.35s;
+        }
+
+        &:active {
+          transform: translateY(2px);
+          transition-duration: 0.35s;
+        }
+
+        &:hover {
+          box-shadow: rgba(39, 174, 96, 0.2) 0 6px 12px;
+        }
+      }
     }
   }
   &Thumbnails {
@@ -154,10 +219,11 @@
       // left: 0px;
       // z-index: 999;
       position: absolute;
-      transition: transform 1s ease-in-out;
+      // transition: transform 1s ease-in-out;
+      border-radius: 5px;
       // border-top: 2px $fontColor;
       background-color: $fontColor;
-      width: 100%;
+      width: 80%;
       height: 5px;
       bottom: 0;
     }
@@ -168,11 +234,4 @@
     &Active {
     }
   }
-}
-
-.thumbnail {
-  width: 100px;
-  height: 100px;
-  // margin-bottom: 15px;
-  // border: 2px dashed black;
 }

@@ -48,7 +48,7 @@ interface IProductCtx {
   isLoading: boolean;
   hasMore: boolean;
   error: boolean;
-  categories: Array<string>;
+  // categories: Array<string>;
   fetchData: (limit: number) => Promise<() => void>;
   // fetchCategories: () => Promise<() => void>;
 }

@@ -4,11 +4,11 @@ import {
   Card,
   CardHeader,
   CardMedia,
+  Typography,
 } from '@mui/material';
 import { useContext } from 'react';
 import { Navigate, useParams } from 'react-router-dom';
 import { ProductCtx } from '../../context/Product/ProductContext';
-import { useKeenSlider } from 'keen-slider/react';
 import styles from './CardDetail.module.scss';
 import 'keen-slider/keen-slider.min.css';
 import { useSlider } from '../../hooks/useSlider';
@@ -23,6 +23,7 @@ const {
   wrapperContent,
   wrapperContentSliders,
   wrapperContentSide,
+  wrapperContentSideHeader,
   wrapperContentArrows,
   wrapperContentArrowsLeft,
   wrapperContentArrowsRight,
@@ -32,6 +33,11 @@ const {
   wrapperThumbNail,
   wrapperThumbnails,
   wrapperThumbImage,
+  wrapperContentRating,
+  wrapperContentSideDescription,
+  wrapperContentSideHeaderStars,
+  wrapperContentSideButton,
+  wrapperContentSideCurrency,
 } = styles;
 
 export const CardDetail = () => {
@@ -52,70 +58,73 @@ export const CardDetail = () => {
     return (
       <div className={wrapper}>
         {products.length > 0 && (
-          <Card>
-            <div className={wrapperContent}>
-              <div className={wrapperContentSliders}>
-                <div
-                  className={`keen-slider ${wrapperContentSlidersUpper}`}
-                  ref={sliderRef}>
-                  <div className={wrapperContentArrows}>
-                    <a
-                      className={wrapperContentArrowsLeft}
-                      onClick={handleSlidePrev}>
-                      <ModalArrowSVG />
-                    </a>
-                    <a
-                      className={wrapperContentArrowsRight}
-                      onClick={handleSlideNext}>
-                      <ModalArrowSVG />
-                    </a>
-                  </div>
+          <div className={wrapperContent}>
+            <div className={wrapperContentSliders}>
+              <div
+                className={`keen-slider ${wrapperContentSlidersUpper}`}
+                ref={sliderRef}>
+                <div className={wrapperContentArrows}>
+                  <a
+                    className={wrapperContentArrowsLeft}
+                    onClick={handleSlidePrev}>
+                    <ModalArrowSVG />
+                  </a>
+                  <a
+                    className={wrapperContentArrowsRight}
+                    onClick={handleSlideNext}>
+                    <ModalArrowSVG />
+                  </a>
+                </div>
 
-                  {images.map((image, index) => (
+                {images.map((image, index) => (
+                  <div
+                    className={`keen-slider__slide number-slide${
+                      index + 1
+                    } ${wrapperContentImage}`}
+                    key={index}>
+                    <img src={image} alt='' />
+                  </div>
+                ))}
+              </div>
+              <div
+                className={`keen-slider thumbnail ${wrapperThumbnails}`}
+                ref={thumbnailRef}>
+                {images.map((image, index) => {
+                  // console.log(currentSlider === index);/
+                  return (
                     <div
                       className={`keen-slider__slide number-slide${
                         index + 1
-                      } ${wrapperContentImage}`}
+                      } ${wrapperThumb}`}
                       key={index}>
-                      <img src={image} alt='' />
+                      <img src={image} className={wrapperThumbImage} alt='' />
+                      {currentSlider === index && (
+                        <div className={wrapperThumbNail}></div>
+                      )}
                     </div>
-                  ))}
-                </div>
-                <div
-                  className={`keen-slider thumbnail ${wrapperThumbnails}`}
-                  ref={thumbnailRef}>
-                  {images.map((image, index) => {
-                    // console.log(currentSlider === index);/
-                    return (
-                      <div
-                        className={`keen-slider__slide number-slide${
-                          index + 1
-                        } ${wrapperThumb}`}
-                        key={index}>
-                        <img src={image} className={wrapperThumbImage} alt='' />
-                        {currentSlider === index && (
-                          <div className={wrapperThumbNail}></div>
-                        )}
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-              <div className={wrapperContentSide}>
-                <CardHeader title={title}></CardHeader>
-                <StarScore rating={rating} />
-                <p>{description}</p>
-                <p>{currencyFormatter(price)}</p>
-                <Button
-                  onClick={(e) => {
-                    e.preventDefault();
-                    dispatch(addProduct(product));
-                  }}>
-                  Add to cart
-                </Button>
+                  );
+                })}
               </div>
             </div>
-          </Card>
+            <div className={wrapperContentSide}>
+              <h1 className={wrapperContentSideHeader}>{title}</h1>
+              <div className={wrapperContentSideHeaderStars}>
+                <StarScore rating={rating} />
+              </div>
+              <p className={wrapperContentSideDescription}>{description}</p>
+              <p className={wrapperContentSideCurrency}>
+                {currencyFormatter(price)}
+              </p>
+              <button
+                className={wrapperContentSideButton}
+                onClick={(e) => {
+                  e.preventDefault();
+                  dispatch(addProduct(product));
+                }}>
+                Add to cart
+              </button>
+            </div>
+          </div>
         )}
       </div>
     );

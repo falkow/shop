@@ -71,7 +71,7 @@ const ProductProvider = ({ children }: ProductProviderType) => {
         isLoading,
         hasMore,
         error,
-        categories,
+        // categories,
         fetchData,
         // fetchCategories,
       }}>

@@ -5,4 +5,9 @@
 $fontFamily: 'Montserrat', sans-serif;
 // $fontFamily: 'Eczar', serif;
 // $fontFamily: 'Lato, sans-serif';
-$fontColor: #309975;
+// $fontColor: #309975;
+$fontColor: #005b49;
+
+:export {
+  mainColor: $fontColor;
+}
