@@ -27,7 +27,7 @@
   &Price button {
     appearance: none;
     backface-visibility: hidden;
-    background-color: $fontColor;
+    background-color: $primaryColor;
     border-radius: 12px;
     border-style: none;
     box-shadow: rgba(39, 174, 96, 0.15) 0 4px 9px;
@@ -55,7 +55,7 @@
     white-space: nowrap;
 
     &:hover {
-      background-color: #1e8449;
+      background-color: $secondaryColor;
       opacity: 1;
       transform: translateY(0);
       transition-duration: 0.35s;

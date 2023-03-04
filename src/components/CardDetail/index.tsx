@@ -29,6 +29,8 @@ const {
   wrapperContentArrowsRight,
   wrapperContentImage,
   wrapperContentSlidersUpper,
+  wrapperContentSlidersUpperImage,
+  wrapperContentSlidersThumbnails,
   wrapperThumb,
   wrapperThumbNail,
   wrapperThumbnails,
@@ -42,7 +44,7 @@ const {
 
 export const CardDetail = () => {
   const { id } = useParams();
-  const { dispatch } = useContext(CartCtx);
+  const { cartState, dispatch } = useContext(CartCtx);
   const { products, isLoading } = useContext(ProductCtx);
   if (id !== undefined) {
     const {
@@ -55,11 +57,12 @@ export const CardDetail = () => {
 
     const product = products[Number.parseInt(id)];
     const { title, rating, images, description, price } = product;
+    console.log(cartState);
     return (
       <div className={wrapper}>
         {products.length > 0 && (
           <div className={wrapperContent}>
-            <div className={wrapperContentSliders}>
+            <Card className={wrapperContentSliders}>
               <div
                 className={`keen-slider ${wrapperContentSlidersUpper}`}
                 ref={sliderRef}>
@@ -77,53 +80,69 @@ export const CardDetail = () => {
                 </div>
 
                 {images.map((image, index) => (
-                  <div
+                  <Card
                     className={`keen-slider__slide number-slide${
                       index + 1
-                    } ${wrapperContentImage}`}
-                    key={index}>
-                    <img src={image} alt='' />
-                  </div>
+                    } ${wrapperContentSlidersUpperImage}`}
+                    sx={{ boxShadow: 'none' }}>
+                    <CardMedia
+                      key={index}
+                      component='img'
+                      image={image}
+                      sx={{
+                        height: '100%',
+                        width: 'unset',
+                        margin: '0 auto',
+                      }}
+                    />
+                  </Card>
                 ))}
               </div>
               <div
-                className={`keen-slider thumbnail ${wrapperThumbnails}`}
+                className={`keen-slider thumbnail ${wrapperContentSlidersThumbnails}`}
                 ref={thumbnailRef}>
                 {images.map((image, index) => {
-                  // console.log(currentSlider === index);/
                   return (
-                    <div
+                    <Card
                       className={`keen-slider__slide number-slide${
                         index + 1
                       } ${wrapperThumb}`}
-                      key={index}>
-                      <img src={image} className={wrapperThumbImage} alt='' />
+                      key={index}
+                      sx={{ maxWidth: '360px', boxShadow: 'none' }}>
+                      <CardMedia
+                        component='img'
+                        image={image}
+                        className={wrapperThumbImage}
+                      />
                       {currentSlider === index && (
                         <div className={wrapperThumbNail}></div>
                       )}
-                    </div>
+                    </Card>
                   );
                 })}
               </div>
-            </div>
-            <div className={wrapperContentSide}>
-              <h1 className={wrapperContentSideHeader}>{title}</h1>
+            </Card>
+
+            <Card className={wrapperContentSide}>
+              <CardHeader className={wrapperContentSideHeader} title={title} />
               <div className={wrapperContentSideHeaderStars}>
                 <StarScore rating={rating} />
               </div>
-              <p className={wrapperContentSideDescription}>{description}</p>
-              <p className={wrapperContentSideCurrency}>
+              <Typography className={wrapperContentSideDescription}>
+                {description}
+              </Typography>
+              <Typography className={wrapperContentSideCurrency}>
                 {currencyFormatter(price)}
-              </p>
-              <button
+              </Typography>
+              <Button
                 className={wrapperContentSideButton}
                 onClick={(e) => {
                   e.preventDefault();
                   dispatch(addProduct(product));
                 }}>
                 Add to cart
-              </button>
-            </div>
+              </Button>
+            </Card>
           </div>
         )}
       </div>
