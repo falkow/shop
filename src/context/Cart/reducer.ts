@@ -35,7 +35,7 @@ function reducer(state: CartType, action: CartActions) {
               return item;
             });
 
-      console.log({ items: items, price: totalPrice(items) });
+      // console.log({ items: items, price: totalPrice(items) });
       return { items: items, price: totalPrice(items) };
     }
     case ACTIONS.DELETE: {

@@ -57,7 +57,6 @@ export const CardDetail = () => {
 
     const product = products[Number.parseInt(id)];
     const { title, rating, images, description, price } = product;
-    console.log(cartState);
     return (
       <div className={wrapper}>
         {products.length > 0 && (
@@ -84,9 +83,9 @@ export const CardDetail = () => {
                     className={`keen-slider__slide number-slide${
                       index + 1
                     } ${wrapperContentSlidersUpperImage}`}
+                    key={index}
                     sx={{ boxShadow: 'none' }}>
                     <CardMedia
-                      key={index}
                       component='img'
                       image={image}
                       sx={{

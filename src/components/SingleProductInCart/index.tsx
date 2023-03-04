@@ -1,7 +1,7 @@
 import React from 'react';
 
-const SingleProductInCart = () => {
-  return <div>ProductsInCart</div>;
+const SingleProductInCart = ({ product }: any) => {
+  return <div className='ghgk'>{product.title}</div>;
 };
 
 export default SingleProductInCart;

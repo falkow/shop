@@ -16,7 +16,7 @@ const StarScore = ({ rating }: { rating: number }) => {
         return rating >= index + 1 ? (
           <YellowStar key={index} />
         ) : rating >= number ? (
-          <HalfYellowStar />
+          <HalfYellowStar key={index} />
         ) : (
           <GrayStar key={index} />
         );
