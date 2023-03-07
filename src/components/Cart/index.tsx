@@ -14,10 +14,9 @@ const { wrapper } = styles;
 const Cart = () => {
   const { cartState } = useContext(CartCtx);
   const { items, price } = cartState;
-  console.log(cartState);
   return (
     <div className={wrapper}>
-      {items.length > 0 && <ProductsInCart items={items} />}
+      {items.length > 0 ? <ProductsInCart {...cartState} /> : <div>empty</div>}
     </div>
   );
 };

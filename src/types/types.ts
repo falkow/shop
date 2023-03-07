@@ -2,14 +2,34 @@ import { ACTIONS } from '../context/Cart/actions';
 
 type AddToCartType = { type: typeof ACTIONS.ADD; payload: DummyProductType };
 
+type DecreaseProductInCartType = {
+  type: typeof ACTIONS.DECREASE;
+  payload: DummyProductType;
+};
+type IncreaseProductInCartType = {
+  type: typeof ACTIONS.INCREASE;
+  payload: DummyProductType;
+};
+
 type RemoveFromCartType = {
   type: typeof ACTIONS.DELETE;
+  payload: DummyProductType;
+};
+type ChangeQuantityType = {
+  type: typeof ACTIONS.CHANGEQTY;
+  newQty: number;
   payload: DummyProductType;
 };
 
 type ResetCartType = { type: typeof ACTIONS.RESET };
 
-type CartActions = AddToCartType | RemoveFromCartType | ResetCartType;
+type CartActions =
+  | AddToCartType
+  | RemoveFromCartType
+  | ResetCartType
+  | DecreaseProductInCartType
+  | IncreaseProductInCartType
+  | ChangeQuantityType;
 
 type DummyProductType = {
   id: number;
@@ -64,6 +84,9 @@ export type {
   CartProviderType,
   ResetCartType,
   RemoveFromCartType,
+  DecreaseProductInCartType,
+  IncreaseProductInCartType,
+  ChangeQuantityType,
   AddToCartType,
   DataType,
   DummyCard,

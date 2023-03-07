@@ -1,0 +1,64 @@
+@import '../../styles/variables';
+.wrapper {
+  display: flex;
+  justify-content: space-evenly;
+  min-width: 550px;
+  border-bottom: 1px solid rgb(0 0 0 / 20%);
+  border-radius: 12px;
+  &:last-of-type {
+    border-bottom: none;
+  }
+  &Right,
+  &Left {
+    display: flex !important;
+    align-items: center;
+  }
+  &Right {
+    justify-content: flex-end;
+    // align-items: center;
+    & input::-webkit-outer-spin-button,
+    & input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    /* Firefox */
+    & input[type='number'] {
+      -moz-appearance: textfield;
+    }
+  }
+
+  &Left {
+    &Header {
+      padding: 0 16px !important;
+    }
+  }
+  &Container {
+    &Price {
+      padding: 0 5px;
+    }
+    &Quantity {
+      padding: 0 !important;
+
+      // max-width: 200px;
+      & input {
+        text-align: center;
+        max-width: 50px;
+      }
+      & button {
+        color: white;
+        background-color: $primaryColor;
+        &:hover {
+          background-color: $secondaryColor;
+        }
+      }
+      & span,
+      & button {
+        border-radius: 12px;
+        height: 38px;
+        margin: 0;
+        padding: 0;
+      }
+    }
+  }
+}

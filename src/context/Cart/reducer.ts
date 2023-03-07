@@ -2,7 +2,10 @@ import {
   AddToCartType,
   CartActions,
   CartType,
+  ChangeQuantityType,
+  DecreaseProductInCartType,
   DummyProductType,
+  IncreaseProductInCartType,
   RemoveFromCartType,
   ResetCartType,
 } from '../../types/types';
@@ -46,6 +49,17 @@ function reducer(state: CartType, action: CartActions) {
       const items =
         found === -1
           ? [...state.items]
+          : state.items.filter((item) => item.id !== action.payload.id);
+      return { items: items, price: totalPrice(items) };
+    }
+    case ACTIONS.DECREASE: {
+      const found = state.items.findIndex((item) => {
+        return item.id === action.payload.id;
+      });
+
+      const items =
+        found === -1
+          ? [...state.items]
           : state.items[found].quantity === 1
           ? state.items.filter((item) => item.id !== action.payload.id)
           : state.items.map((item, index) => {
@@ -59,8 +73,47 @@ function reducer(state: CartType, action: CartActions) {
       console.log({ items: items, price: totalPrice(items) });
       return { items: items, price: totalPrice(items) };
     }
+    case ACTIONS.INCREASE: {
+      const found = state.items.findIndex((item) => {
+        return item.id === action.payload.id;
+      });
+
+      const items =
+        found === -1
+          ? [...state.items]
+          : // : state.items[found].quantity === 1
+            // ? state.items.filter((item) => item.id !== action.payload.id)
+            state.items.map((item, index) => {
+              if (index === found) {
+                return { ...item, quantity: item.quantity + 1 };
+              } else {
+                return item;
+              }
+            });
+
+      console.log({ items: items, price: totalPrice(items) });
+      return { items: items, price: totalPrice(items) };
+    }
     case ACTIONS.RESET: {
       return { items: [], price: 0 };
+    }
+    case ACTIONS.CHANGEQTY: {
+      console.log(action);
+      const found = state.items.findIndex((item) => {
+        return item.id === action.payload.id;
+      });
+
+      const items =
+        found === -1
+          ? [...state.items]
+          : state.items.map((item, index) => {
+              if (index === found) {
+                return { ...item, quantity: action.newQty };
+              } else {
+                return item;
+              }
+            });
+      return { items: items, price: totalPrice(items) };
     }
     default:
       return { ...state };
@@ -73,10 +126,36 @@ const addProduct = (product: DummyProductType): AddToCartType => ({
 });
 const decreaseProductQuantity = (
   product: DummyProductType
-): RemoveFromCartType => ({
+): DecreaseProductInCartType => ({
+  type: ACTIONS.DECREASE,
+  payload: product,
+});
+const increaseProductQuantity = (
+  product: DummyProductType
+): IncreaseProductInCartType => ({
+  type: ACTIONS.INCREASE,
+  payload: product,
+});
+const changeProductQuantity = (
+  newQuantity: number,
+  product: DummyProductType
+): ChangeQuantityType => ({
+  type: ACTIONS.CHANGEQTY,
+  newQty: newQuantity,
+  payload: product,
+});
+const removeProduct = (product: DummyProductType): RemoveFromCartType => ({
   type: ACTIONS.DELETE,
   payload: product,
 });
 const resetCart = (): ResetCartType => ({ type: ACTIONS.RESET });
 
-export { reducer, addProduct, decreaseProductQuantity, resetCart };
+export {
+  reducer,
+  addProduct,
+  decreaseProductQuantity,
+  increaseProductQuantity,
+  changeProductQuantity,
+  removeProduct,
+  resetCart,
+};

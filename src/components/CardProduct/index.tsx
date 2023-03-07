@@ -44,7 +44,8 @@ export const CardProduct = ({ ...product }: DummyCard) => {
       <CardHeader
         className={cardHeader}
         title={title}
-        sx={{ padding: '5px' }}></CardHeader>
+        sx={{ padding: '5px' }}
+      />
       <StarScore rating={rating} />
       <CardContent sx={{ padding: '5px' }} className={cardPrice}>
         <Typography variant='body2'>{currencyFormatter(price)}</Typography>
