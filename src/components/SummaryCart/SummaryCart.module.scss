@@ -1,0 +1,27 @@
+@import '../../styles/variables';
+
+.wrapper {
+  width: 300px;
+  height: 300px;
+  border-radius: 12px;
+  &Summary {
+    display: flex !important;
+    justify-content: space-between;
+    & p {
+      font-family: $fontFamily;
+    }
+    &Total {
+    }
+  }
+  & button {
+    font-family: $fontFamily;
+    color: white;
+    background-color: $primaryColor;
+    border-radius: 12px;
+    display: flex;
+    margin: 0 auto;
+    &:hover {
+      background-color: $secondaryColor;
+    }
+  }
+}
