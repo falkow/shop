@@ -13,7 +13,7 @@ const SummaryCart = () => {
   const { price } = cartState;
 
   return (
-    <Card className={wrapper}>
+    <Card className={wrapper} sx={{ borderRadius: '12px' }}>
       <Container className={wrapperSummary}>
         <Typography>Price</Typography>
         <Typography>{currencyFormatter(price)}</Typography>
@@ -22,7 +22,7 @@ const SummaryCart = () => {
         <Typography>Delivery charges</Typography>
         <Typography>Free</Typography>
       </Container>
-      <Container className={` ${wrapperSummary} ${wrapperSummaryTotal}`}>
+      <Container className={`${wrapperSummary} ${wrapperSummaryTotal}`}>
         <Typography>Total Amount</Typography>
         <Typography>{currencyFormatter(price)}</Typography>
       </Container>

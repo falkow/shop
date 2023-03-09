@@ -2,7 +2,7 @@
 .wrapper {
   display: flex;
   justify-content: space-evenly;
-  min-width: 550px;
+  // min-width: 550px;
   border-bottom: 1px solid rgb(0 0 0 / 20%);
   border-radius: 12px;
   &:last-of-type {
@@ -31,11 +31,19 @@
   &Left {
     &Header {
       padding: 0 16px !important;
+      & span {
+        font-family: $fontFamily;
+        font-weight: 500;
+        font-size: 16px;
+      }
     }
   }
   &Container {
     &Price {
       padding: 0 5px;
+      & p {
+        font-family: $fontFamily;
+      }
     }
     &Quantity {
       padding: 0 !important;

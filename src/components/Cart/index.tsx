@@ -1,11 +1,13 @@
+import { Typography } from '@mui/material';
+import { Container } from '@mui/system';
 import React, { useContext } from 'react';
 import { CartCtx } from '../../context/Cart/CartContext';
 import ProductsInCart from '../ProductsInCart';
 import SummaryCart from '../SummaryCart';
 
-import styles from './Cards.module.scss';
+import styles from './Cart.module.scss';
 
-const { wrapper } = styles;
+const { wrapper, wrapperProducts, wrapperProductsSummary } = styles;
 
 // type CartType = {
 //   items: DummyProductType[];
@@ -19,7 +21,12 @@ const Cart = () => {
     <div className={wrapper}>
       {items.length > 0 ? (
         <>
-          <ProductsInCart {...cartState} />
+          <Container className={wrapperProducts}>
+            <Typography className={wrapperProductsSummary}>
+              Shopping Cart ({items.length})
+            </Typography>
+            <ProductsInCart {...cartState} />
+          </Container>
           <SummaryCart />
         </>
       ) : (
