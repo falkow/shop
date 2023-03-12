@@ -87,7 +87,7 @@ const SingleProductInCart = (
               +
             </Button>
           }
-          sx={{ borderRadius: '12px' }}
+          sx={{ borderRadius: '12px', borderWidth: '0', minHeight: 'none' }}
         />
         <Button onClick={(e) => dispatch(removeProduct(product))}>
           <Bin />

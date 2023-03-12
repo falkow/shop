@@ -4,12 +4,12 @@ import SingleProductInCart from '../SingleProductInCart';
 import { CartType, DummyProductType } from '../../types/types';
 import { Card } from '@mui/material';
 
-const {} = styles;
+const { wrapper } = styles;
 
 const ProductsInCart = ({ items, price }: CartType) => {
   // console.log(items);
   return (
-    <Card sx={{ borderRadius: '12px' }}>
+    <Card sx={{ borderRadius: '12px' }} className={wrapper}>
       {items.map((item: DummyProductType, index: number) => (
         <SingleProductInCart product={item} key={index} />
       ))}
