@@ -11,17 +11,20 @@ import ProductProvider from './context/Product/ProductProvider';
 import './styles/global.scss';
 import { Home } from './components/Home';
 import ScrollToTop from './utils/ScrollToTop';
+import CartPage from './pages/CartPage';
+import ShopPage from './pages/ShopPage';
+import HomePage from './pages/HomePage';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <ProductProvider>
     <CartProvider>
       <BrowserRouter>
         <ScrollToTop />
-        <Navbar />
+        {/* <Navbar /> */}
         <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/shop' element={<Cards />} />
-          <Route path='/cart' element={<Cart />} />
+          <Route path='/' element={<HomePage />} />
+          <Route path='/shop' element={<ShopPage />} />
+          <Route path='/cart' element={<CartPage />} />
           <Route
             path='/shop/:id'
             element={<CardDetail />}
