@@ -5,7 +5,8 @@ import { CartCtx } from '../../context/Cart/CartContext';
 import ProductsInCart from '../ProductsInCart';
 import SummaryCart from '../SummaryCart';
 
-import styles from './Cart.module.scss';
+// import styles from './rwd.module.scss';
+import styles from './rwd.module.scss';
 
 const { wrapper, wrapperProducts, wrapperProductsSummary } = styles;
 
