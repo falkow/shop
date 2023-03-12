@@ -1,0 +1,20 @@
+@import './SingleProductInCart.module.scss';
+
+@media only screen and (max-width: 640px) {
+  .wrapper {
+    flex-wrap: wrap;
+    &Left,
+    &Right {
+      justify-content: center;
+    }
+    &Right {
+      flex-direction: column;
+    }
+    // &Container {
+    //   padding: 60px 0;
+    //   &Title {
+    //     margin-bottom: 8px;
+    //   }
+    // }
+  }
+}

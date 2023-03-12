@@ -43,6 +43,7 @@ const Cards = () => {
   useEffect(() => {
     fetchData(limit);
   }, [limit]);
+
   return (
     <div className={wrapperContainer}>
       {products.map((product, index) => {

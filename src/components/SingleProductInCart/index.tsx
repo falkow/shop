@@ -18,7 +18,7 @@ import {
   changeProductQuantity,
 } from '../../context/Cart/reducer';
 import { DummyProductType } from '../../types/types';
-import styles from './SingleProductInCart.module.scss';
+import styles from './rwd.module.scss';
 
 const {
   wrapper,
