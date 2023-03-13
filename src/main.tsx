@@ -14,6 +14,7 @@ import ScrollToTop from './utils/ScrollToTop';
 import CartPage from './pages/CartPage';
 import ShopPage from './pages/ShopPage';
 import HomePage from './pages/HomePage';
+import ProductPage from './pages/ProductPage';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <ProductProvider>
@@ -27,7 +28,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
           <Route path='/cart' element={<CartPage />} />
           <Route
             path='/shop/:id'
-            element={<CardDetail />}
+            element={<ProductPage />}
             errorElement={<NotFound />}
           />
           <Route path='*' element={<NotFound />} />

@@ -2,6 +2,7 @@ import { Typography } from '@mui/material';
 import { Container } from '@mui/system';
 import React, { useContext } from 'react';
 import { CartCtx } from '../../context/Cart/CartContext';
+import EmptyCart from '../EmptyCart';
 import ProductsInCart from '../ProductsInCart';
 import SummaryCart from '../SummaryCart';
 
@@ -31,7 +32,7 @@ const Cart = () => {
           <SummaryCart />
         </>
       ) : (
-        <div>empty</div>
+        <EmptyCart />
       )}
     </div>
   );
