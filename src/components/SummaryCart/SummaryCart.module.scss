@@ -6,6 +6,8 @@
   border-radius: 12px;
   position: relative;
   margin-top: 30px;
+  background-color: $backgroundColor !important;
+
   &Summary {
     display: flex !important;
     justify-content: space-between;

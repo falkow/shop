@@ -4,6 +4,7 @@
   width: calc(100% - 64px);
   max-width: 1100px;
   margin: 100px auto;
+  // background-color: $backgroundColor !important;
 
   &Content {
     display: flex;
@@ -57,6 +58,7 @@
       flex-direction: column;
       width: 60%;
       padding: 15px;
+      background-color: $backgroundColor !important;
 
       &Upper {
         position: relative;
@@ -80,6 +82,7 @@
       flex-direction: column;
       justify-content: flex-start;
       padding: 15px;
+      background-color: $backgroundColor !important;
 
       &Header {
         & span {

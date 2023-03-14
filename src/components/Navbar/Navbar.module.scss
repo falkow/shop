@@ -16,6 +16,10 @@
 
     width: calc(100% - 64px);
     margin: 0 auto;
+    & svg,
+    path {
+      fill: $fontColor;
+    }
   }
 
   &Links {
@@ -24,6 +28,7 @@
   }
   &Link {
     color: $fontColor;
+    font-size: $fontSizeNormal;
     text-decoration: none;
     padding: 5px 15px;
     & svg {

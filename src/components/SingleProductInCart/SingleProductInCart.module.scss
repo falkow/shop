@@ -4,6 +4,7 @@
   justify-content: space-evenly;
   // min-width: 550px;
   border-bottom: 1px solid rgb(0 0 0 / 20%);
+  background-color: $backgroundColor !important;
 
   &:last-of-type {
     border-bottom: none;
