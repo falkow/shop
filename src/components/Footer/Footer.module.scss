@@ -5,4 +5,38 @@
   width: 100%;
   height: 100px;
   margin-top: auto;
+  display: flex;
+  padding: 90px 0;
+  justify-content: space-around;
+  align-items: center;
+  &Media {
+    display: flex;
+    flex-direction: column;
+    & svg {
+      margin: 10px;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+  &Logo {
+    & svg {
+      width: 100px;
+      height: 100px;
+    }
+  }
+  &Links {
+    display: flex;
+    flex-direction: column;
+    & a {
+      text-decoration: none;
+      color: $colorWhite;
+      font-family: $fontFamily;
+      font-size: $fontSizeXL;
+      margin: 5px 0;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
 }
