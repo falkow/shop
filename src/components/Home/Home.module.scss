@@ -1,4 +1,22 @@
 .wrapper {
-  margin-top: 300px;
+  // max-width: 1100px;
+  width: calc(100% - 64px);
+  margin: 0 auto;
+  margin-top: 100px;
+  &Content {
+    display: flex;
+    &Right {
+      flex-basis: 50%;
+      & img {
+        width: 100%;
+        // height: 100px;
+        object-fit: cover;
+      }
+    }
+    &Left {
+      flex-basis: 50%;
+    }
+  }
+  // margin-top: 300px;
   // height: 330vh;
 }
