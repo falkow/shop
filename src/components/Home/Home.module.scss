@@ -1,8 +1,10 @@
+@import '../../styles/variables';
+
 .wrapper {
   // max-width: 1100px;
   width: calc(100% - 64px);
-  margin: 0 auto;
-  margin-top: 100px;
+  margin: 100px auto;
+  // margin-top: 100px;
   &Content {
     display: flex;
     &Right {
@@ -15,6 +17,71 @@
     }
     &Left {
       flex-basis: 50%;
+      position: relative;
+      display: flex !important;
+      flex-direction: column;
+      justify-content: center;
+
+      & h1 {
+        font-family: $fontFamily;
+        font-size: 3em;
+        margin: 20px 0;
+      }
+      & p {
+        margin-top: 15px;
+        font-family: $fontFamily;
+      }
+      & a {
+        // appearance: none;
+        // backface-visibility: hidden;
+        background-color: $primaryColor;
+        border-radius: 12px;
+        border-style: none;
+        box-shadow: rgba(39, 174, 96, 0.15) 0 4px 9px;
+        box-sizing: border-box;
+        color: #fff;
+        cursor: pointer;
+        display: inline-block;
+        font-family: $fontFamily;
+        font-size: 16px;
+        font-weight: 600;
+        letter-spacing: normal;
+        line-height: 1.5;
+        // outline: none;
+        overflow: hidden;
+        padding: 13px 20px;
+        margin: 15px auto;
+        width: 55%;
+        // position: absolute;
+        // left: 50%;
+        transform: translate(0, -50%);
+        text-align: center;
+        text-decoration: none;
+        transform: translate3d(0, 0, 0);
+        transition: all 0.3s;
+        text-transform: uppercase;
+        // user-select: none;
+        // -webkit-user-select: none;
+        // touch-action: manipulation;
+        // vertical-align: top;
+        // white-space: nowrap;
+
+        &:hover {
+          background-color: $secondaryColor;
+          opacity: 1;
+          transform: translateY(0);
+          transition-duration: 0.35s;
+        }
+
+        &:active {
+          transform: translateY(2px);
+          transition-duration: 0.35s;
+        }
+
+        &:hover {
+          box-shadow: rgba(39, 174, 96, 0.2) 0 6px 12px;
+        }
+      }
     }
   }
   // margin-top: 300px;

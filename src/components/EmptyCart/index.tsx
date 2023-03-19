@@ -10,11 +10,7 @@ const EmptyCart = () => {
     <Container className={wrapper}>
       <Typography>Your shopping cart is empty</Typography>
       <Typography>Looking for inspiration?</Typography>
-      <Link to='/shop'>
-        {/* <Button> */}
-        Go to the homepage
-        {/* </Button> */}
-      </Link>
+      <Link to='/shop'>Go to Shop</Link>
     </Container>
   );
 };
