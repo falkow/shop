@@ -12,10 +12,14 @@
   &Media {
     display: flex;
     flex-direction: column;
-    & svg {
-      margin: 10px;
-      &:hover {
-        cursor: pointer;
+    color: $colorWhite;
+    font-size: $fontSizeXL;
+    &SVG {
+      & svg {
+        margin: 10px;
+        &:hover {
+          cursor: pointer;
+        }
       }
     }
   }

@@ -9,7 +9,7 @@ import { CardDetail } from './components/CardDetail';
 import { NotFound } from './components/NotFound';
 import ProductProvider from './context/Product/ProductProvider';
 import './styles/global.scss';
-import { Home } from './components/Home';
+import { Home } from './components/HeroHome';
 import ScrollToTop from './utils/ScrollToTop';
 import CartPage from './pages/CartPage';
 import ShopPage from './pages/ShopPage';

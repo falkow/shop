@@ -13,7 +13,8 @@ import InstagramSVG from '../../assets/Instagram';
 import { BehindGreenDoor } from '../../assets/BehindGreenDoor';
 import { Link } from '@mui/material';
 
-const { wrapper, wrapperLogo, wrapperMedia, wrapperLinks } = styles;
+const { wrapper, wrapperLogo, wrapperMedia, wrapperMediaSVG, wrapperLinks } =
+  styles;
 
 const Footer = () => {
   return (
@@ -29,11 +30,12 @@ const Footer = () => {
         <Link href='#'>Regulations</Link>
       </div>
       <div className={wrapperMedia}>
-        <FacebookSVG />
-        <InstagramSVG />
+        <p>FOLLOW US</p>
+        <div className={wrapperMediaSVG}>
+          <FacebookSVG />
+          <InstagramSVG />
+        </div>
       </div>
-      {/* <FontAwesomeIcon icon={`fab fa-facebook`} /> */}
-      {/* <FontAwesomeIcon icon='fab fa-facebook' /> */}
     </footer>
   );
 };
