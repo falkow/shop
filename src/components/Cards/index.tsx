@@ -11,7 +11,7 @@ import { ProductCtx } from '../../context/Product/ProductContext';
 import { CardProduct } from '../CardProduct';
 import styles from './Cards.module.scss';
 
-const { wrapperContainer } = styles;
+const { wrapper, wrapperLink } = styles;
 
 const Cards = () => {
   const [limit, setLimit] = useState(10);
@@ -45,17 +45,17 @@ const Cards = () => {
   }, [limit]);
 
   return (
-    <div className={wrapperContainer}>
+    <div className={wrapper}>
       {products.map((product, index) => {
         if (products.length === index + 1) {
           return (
-            <Link to={`${index}`} key={product.id}>
+            <Link to={`${index}`} key={product.id} className={wrapperLink}>
               <CardProduct {...product} innerRef={lastProduct} />
             </Link>
           );
         } else {
           return (
-            <Link to={`${index}`} key={product.id}>
+            <Link to={`${index}`} key={product.id} className={wrapperLink}>
               <CardProduct {...product} />
             </Link>
           );
