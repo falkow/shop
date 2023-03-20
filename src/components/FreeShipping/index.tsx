@@ -3,16 +3,16 @@ import freeShipping from '../../assets/freeShipping.jpg';
 import styles from './FreeShipping.module.scss';
 import React from 'react';
 
-const { wrapper } = styles;
+const { wrapper, wrapperLeft, wrapperRigth } = styles;
 
 const FreeShipping = () => {
   return (
     <Container className={wrapper}>
-      <Container>
+      <Container className={wrapperLeft}>
         <img src={freeShipping} alt='' />
       </Container>
-      <Container>
-        <h3>Free Shipping</h3>
+      <Container className={wrapperRigth}>
+        <h2>Free Shipping</h2>
         <Typography>
           Are you tired of paying for shipping? Well, fear not my friend! We
           offer free shipping, but only if you're willing to spend an exorbitant

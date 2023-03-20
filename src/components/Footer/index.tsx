@@ -9,9 +9,10 @@ import {
 } from '@fortawesome/fontawesome-svg-core/import.macro';
 
 import styles from './Footer.module.scss';
-import InstagramSVG from '../../assets/Instagram';
+import InstagramSVG from '../../assets/InstagramSVG';
 import { BehindGreenDoor } from '../../assets/BehindGreenDoor';
 import { Link } from '@mui/material';
+import YoutubeSVG from '../../assets/YoutubeSVG';
 
 const { wrapper, wrapperLogo, wrapperMedia, wrapperMediaSVG, wrapperLinks } =
   styles;
@@ -34,6 +35,7 @@ const Footer = () => {
         <div className={wrapperMediaSVG}>
           <FacebookSVG />
           <InstagramSVG />
+          <YoutubeSVG />
         </div>
       </div>
     </footer>
