@@ -1,14 +1,10 @@
 @import '../../styles/variables';
 
 .wrapper {
-  display: flex !important;
-  flex-direction: column;
-  // justify-content: center;
-  align-items: center;
   padding: 30px 0;
   margin-bottom: 30px;
+  text-align: center;
   &Header {
-    // margin-bottom: 30px;
     font-size: $fontSizeH3;
   }
   &Paragraph {
