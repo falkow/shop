@@ -30,9 +30,16 @@
     color: $fontColor;
     font-size: $fontSizeNormal;
     text-decoration: none;
+    position: relative;
     padding: 5px 15px;
     & svg {
       width: 30px;
+    }
+    p {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      transform: translateX(5px);
     }
   }
 }

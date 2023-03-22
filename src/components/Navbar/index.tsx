@@ -6,13 +6,16 @@ import { BehindGreenDoor } from '../../assets/BehindGreenDoor';
 // import ShoppingCart from '../../assets/shopping_cart.svg';
 import ShoppingCart from '../../assets/ShoppingCart';
 import style from './Navbar.module.scss';
+import { CartCtx } from '../../context/Cart/CartContext';
 
 const { header, headerLink, headerWrapper, headerLinks } = style;
 
 const Navbar = () => {
-  // const { } = useContext(ProductCtx);
+  const { cartState } = useContext(CartCtx);
   // console.log(useLocation());
   // console.log(categories);
+  const { items } = cartState;
+  const itemsInCart = items.length;
 
   useEffect(() => {
     // fetchCategories();
@@ -38,6 +41,7 @@ const Navbar = () => {
           </Link>
           <Link to='/cart' className={headerLink}>
             <ShoppingCart />
+            <p>{itemsInCart ? `(${itemsInCart})` : ''}</p>
             {/* <img src={ShoppingCart} alt='Cart' /> */}
             {/* Cart */}
           </Link>
