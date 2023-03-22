@@ -4,5 +4,9 @@
   .wrapper {
     flex-wrap: wrap;
     flex-direction: column;
+    &Links,
+    &Media {
+      margin-top: 25px;
+    }
   }
 }
