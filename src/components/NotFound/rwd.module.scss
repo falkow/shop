@@ -1,0 +1,19 @@
+@import './NotFound.module.scss';
+
+@media only screen and (max-width: 768px) {
+  .wrapper {
+    flex-direction: column;
+    align-content: center;
+    &Main {
+      display: block;
+      &Inform {
+        & h2 {
+          font-size: 48px;
+        }
+        & span {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}

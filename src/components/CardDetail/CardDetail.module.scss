@@ -107,8 +107,6 @@
       }
 
       & button {
-        appearance: none;
-        backface-visibility: hidden;
         background-color: $primaryColor;
         border-radius: 12px;
         border-style: none;
@@ -130,11 +128,6 @@
         text-decoration: none;
         transform: translate3d(0, 0, 0);
         transition: all 0.3s;
-        user-select: none;
-        -webkit-user-select: none;
-        touch-action: manipulation;
-        vertical-align: top;
-        white-space: nowrap;
 
         &:hover {
           background-color: $secondaryColor;
