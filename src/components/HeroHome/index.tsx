@@ -1,4 +1,4 @@
-import style from './Home.module.scss';
+import style from './rwd.module.scss';
 import mountain from '../../assets/mountain.jpg';
 import mountain1 from '../../assets/mountain1.jpg';
 import mountain2 from '../../assets/mountain2.jpg';

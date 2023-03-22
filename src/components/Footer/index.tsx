@@ -8,7 +8,7 @@ import {
   icon,
 } from '@fortawesome/fontawesome-svg-core/import.macro';
 
-import styles from './Footer.module.scss';
+import styles from './rwd.module.scss';
 import InstagramSVG from '../../assets/InstagramSVG';
 import { BehindGreenDoor } from '../../assets/BehindGreenDoor';
 import { Link } from '@mui/material';
