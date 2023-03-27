@@ -63,7 +63,6 @@ export const CardDetail = () => {
           <div className={wrapperContent}>
             <Card className={wrapperContentSliders}>
               <div
-                // className={`keen-slider`}
                 className={`keen-slider ${wrapperContentSlidersUpper}`}
                 ref={sliderRef}>
                 <div className={wrapperContentArrows}>
@@ -80,33 +79,22 @@ export const CardDetail = () => {
                 </div>
 
                 {images.map((image, index) => (
-                  <div
+                  <Card
                     className={`keen-slider__slide number-slide${
                       index + 1
                     } ${wrapperContentSlidersUpperImage}`}
                     key={index}
-                    // sx={{ boxShadow: 'none' }}
-                  >
-                    {/* <img
-                      src={image}
-                      // sx={{
-                      //   height: '100%',
-                      //   width: 'unset',
-                      //   // margin: '0 auto',
-                      // }}
-                    /> */}
+                    sx={{ boxShadow: 'none' }}>
                     <CardMedia
                       component='img'
                       image={image}
-                      sx={
-                        {
-                          // height: '100%',
-                          // width: 'unset',
-                          // margin: '0 auto',
-                        }
-                      }
+                      // sx={{
+                      //   height: '100%',
+                      //   width: 'unset',
+                      //   margin: '0 auto',
+                      // }}
                     />
-                  </div>
+                  </Card>
                 ))}
               </div>
               <div
@@ -119,7 +107,8 @@ export const CardDetail = () => {
                         index + 1
                       } ${wrapperThumb}`}
                       key={index}
-                      sx={{ maxWidth: '360px', boxShadow: 'none' }}>
+                      // sx={{ maxWidth: '360px', boxShadow: 'none' }}
+                    >
                       <CardMedia
                         component='img'
                         image={image}
