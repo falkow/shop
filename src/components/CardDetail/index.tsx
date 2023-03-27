@@ -9,7 +9,7 @@ import {
 import { useContext } from 'react';
 import { Navigate, useParams } from 'react-router-dom';
 import { ProductCtx } from '../../context/Product/ProductContext';
-import styles from './CardDetail.module.scss';
+import styles from './rwd.module.scss';
 import 'keen-slider/keen-slider.min.css';
 import { useSlider } from '../../hooks/useSlider';
 import StarScore from '../StarScore';
@@ -63,6 +63,7 @@ export const CardDetail = () => {
           <div className={wrapperContent}>
             <Card className={wrapperContentSliders}>
               <div
+                // className={`keen-slider`}
                 className={`keen-slider ${wrapperContentSlidersUpper}`}
                 ref={sliderRef}>
                 <div className={wrapperContentArrows}>
@@ -79,22 +80,33 @@ export const CardDetail = () => {
                 </div>
 
                 {images.map((image, index) => (
-                  <Card
+                  <div
                     className={`keen-slider__slide number-slide${
                       index + 1
                     } ${wrapperContentSlidersUpperImage}`}
                     key={index}
-                    sx={{ boxShadow: 'none' }}>
+                    // sx={{ boxShadow: 'none' }}
+                  >
+                    {/* <img
+                      src={image}
+                      // sx={{
+                      //   height: '100%',
+                      //   width: 'unset',
+                      //   // margin: '0 auto',
+                      // }}
+                    /> */}
                     <CardMedia
                       component='img'
                       image={image}
-                      sx={{
-                        height: '100%',
-                        width: 'unset',
-                        margin: '0 auto',
-                      }}
+                      sx={
+                        {
+                          // height: '100%',
+                          // width: 'unset',
+                          // margin: '0 auto',
+                        }
+                      }
                     />
-                  </Card>
+                  </div>
                 ))}
               </div>
               <div

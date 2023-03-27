@@ -52,6 +52,10 @@ export const useSlider = () => {
   const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
     initial: 0,
     loop: false,
+    slides: {
+      perView: 1,
+      // spacing: 10,
+    },
     slideChanged(slider) {
       setCurrentSlide(slider.track.details.rel);
     },

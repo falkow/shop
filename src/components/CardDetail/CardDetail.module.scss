@@ -1,4 +1,5 @@
 @import '../../styles/variables';
+@import 'keen-slider/keen-slider.min.css';
 
 .wrapper {
   // width: calc(100% - 64px);
@@ -63,10 +64,22 @@
       &Upper {
         position: relative;
         margin: 10px 0;
-        max-height: 300px;
+        // max-height: 300px;
 
         &Image {
           height: 100%;
+          // & img {
+          //   display: block;
+          //   -webkit-background-size: cover;
+          //   background-size: cover;
+          //   background-repeat: no-repeat;
+          //   -webkit-background-position: center;
+          //   background-position: center;
+          //   max-width: 100%;
+          //   object-fit: cover;
+          //   max-height: 100%;
+          //   margin: 0 auto;
+          // }
         }
       }
       &Thumbnails {
