@@ -8,7 +8,11 @@
       justify-content: center;
     }
     &Right {
-      flex-direction: column;
+      // flex-direction: column;
+      margin: 15px;
+    }
+    &Left {
+      margin-top: 15px;
     }
     // &Container {
     //   padding: 60px 0;
