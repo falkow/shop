@@ -6,12 +6,9 @@ import {
   CardMedia,
   Typography,
 } from '@mui/material';
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { CartCtx } from '../../context/Cart/CartContext';
-import {
-  addProduct,
-  decreaseProductQuantity,
-} from '../../context/Cart/reducer';
+import { addProduct } from '../../context/Cart/reducer';
 import { DummyCard } from '../../types/types';
 import { currencyFormatter } from '../../utils/currencyFormatter';
 import StarScore from '../StarScore';

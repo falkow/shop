@@ -1,7 +1,6 @@
 import { Container, Typography } from '@mui/material';
 import freeShipping from '../../assets/freeShipping.jpg';
 import styles from './rwd.module.scss';
-import React from 'react';
 
 const { wrapper, wrapperLeft, wrapperRigth } = styles;
 

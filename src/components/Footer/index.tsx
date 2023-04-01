@@ -1,18 +1,9 @@
-import React from 'react';
 import FacebookSVG from '../../assets/Facebook';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  solid,
-  regular,
-  brands,
-  icon,
-} from '@fortawesome/fontawesome-svg-core/import.macro';
-
-import styles from './rwd.module.scss';
 import InstagramSVG from '../../assets/InstagramSVG';
 import { BehindGreenDoor } from '../../assets/BehindGreenDoor';
 import { Link } from '@mui/material';
 import YoutubeSVG from '../../assets/YoutubeSVG';
+import styles from './rwd.module.scss';
 
 const { wrapper, wrapperLogo, wrapperMedia, wrapperMediaSVG, wrapperLinks } =
   styles;

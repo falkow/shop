@@ -7,8 +7,6 @@ import { Link } from 'react-router-dom';
 
 const { wrapper, wrapperLeftParagraph, wrapperLeft, wrapperRight } = style;
 
-const headers = ['Expensive.', 'Long', 'Poor Quality'];
-
 export const HeroHome = () => {
   return (
     <div className={wrapper}>

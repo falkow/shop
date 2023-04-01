@@ -8,7 +8,7 @@ import styles from './SummaryCart.module.scss';
 const { wrapper, wrapperButton, wrapperSummary, wrapperSummaryTotal } = styles;
 
 const SummaryCart = () => {
-  const { cartState, dispatch } = useContext(CartCtx);
+  const { cartState } = useContext(CartCtx);
 
   const { price } = cartState;
 

@@ -1,4 +1,3 @@
-import React from 'react';
 import { GrayStar } from '../../assets/GrayStar';
 import { YellowStar } from '../../assets/YellowStar';
 import { HalfYellowStar } from '../../assets/HalfYellowStar';

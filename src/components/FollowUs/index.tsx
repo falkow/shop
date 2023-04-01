@@ -1,6 +1,5 @@
 import { Typography } from '@mui/material';
 import { Container } from '@mui/system';
-import React from 'react';
 import ApprovalSVG from '../../assets/ApprovalSVG';
 import styles from './FollowUs.module.scss';
 

@@ -1,9 +1,6 @@
-import axios, { Canceler } from 'axios';
-import React, { useContext, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { ProductCtx } from '../../context/Product/ProductContext';
+import { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { BehindGreenDoor } from '../../assets/BehindGreenDoor';
-// import ShoppingCart from '../../assets/shopping_cart.svg';
 import ShoppingCart from '../../assets/ShoppingCart';
 import style from './Navbar.module.scss';
 import { CartCtx } from '../../context/Cart/CartContext';

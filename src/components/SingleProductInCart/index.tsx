@@ -17,7 +17,7 @@ import {
   removeProduct,
   changeProductQuantity,
 } from '../../context/Cart/reducer';
-import { DummyProductType } from '../../types/types';
+import { SingleProduct } from '../../types/types';
 import styles from './rwd.module.scss';
 
 const {
@@ -25,29 +25,11 @@ const {
   wrapperLeft,
   wrapperRight,
   wrapperLeftHeader,
-  wrapperContainer,
   wrapperContainerPrice,
   wrapperContainerQuantity,
-  wrapperContainerRight,
 } = styles;
 
-const SingleProductInCart = (
-  /* {
-  id,
-  title,
-  description,
-  price,
-  discountPercentage,
-  rating,
-  stock,
-  brand,
-  category,
-  thumbnail,
-  images,
-  quantity,
-}: DummyProductType */
-  { product }: any
-) => {
+const SingleProductInCart = ({ product }: SingleProduct) => {
   const { cartState, dispatch } = useContext(CartCtx);
 
   const { thumbnail, title, price, quantity } = product;
@@ -78,12 +60,12 @@ const SingleProductInCart = (
             dispatch(changeProductQuantity(parseInt(e.target.value), product));
           }}
           startDecorator={
-            <Button onClick={(e) => dispatch(decreaseProductQuantity(product))}>
+            <Button onClick={() => dispatch(decreaseProductQuantity(product))}>
               -
             </Button>
           }
           endDecorator={
-            <Button onClick={(e) => dispatch(increaseProductQuantity(product))}>
+            <Button onClick={() => dispatch(increaseProductQuantity(product))}>
               +
             </Button>
           }

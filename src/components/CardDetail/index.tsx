@@ -1,11 +1,4 @@
-import {
-  Button,
-  CardContent,
-  Card,
-  CardHeader,
-  CardMedia,
-  Typography,
-} from '@mui/material';
+import { Button, Card, CardHeader, CardMedia, Typography } from '@mui/material';
 import { useContext } from 'react';
 import { Navigate, useParams } from 'react-router-dom';
 import { ProductCtx } from '../../context/Product/ProductContext';
@@ -27,15 +20,12 @@ const {
   wrapperContentArrows,
   wrapperContentArrowsLeft,
   wrapperContentArrowsRight,
-  wrapperContentImage,
   wrapperContentSlidersUpper,
   wrapperContentSlidersUpperImage,
   wrapperContentSlidersThumbnails,
   wrapperThumb,
   wrapperThumbNail,
-  wrapperThumbnails,
   wrapperThumbImage,
-  wrapperContentRating,
   wrapperContentSideDescription,
   wrapperContentSideHeaderStars,
   wrapperContentSideButton,
@@ -44,8 +34,8 @@ const {
 
 export const CardDetail = () => {
   const { id } = useParams();
-  const { cartState, dispatch } = useContext(CartCtx);
-  const { products, isLoading } = useContext(ProductCtx);
+  const { dispatch } = useContext(CartCtx);
+  const { products } = useContext(ProductCtx);
   if (id !== undefined) {
     const {
       sliderRef,
@@ -85,15 +75,7 @@ export const CardDetail = () => {
                     } ${wrapperContentSlidersUpperImage}`}
                     key={index}
                     sx={{ boxShadow: 'none' }}>
-                    <CardMedia
-                      component='img'
-                      image={image}
-                      // sx={{
-                      //   height: '100%',
-                      //   width: 'unset',
-                      //   margin: '0 auto',
-                      // }}
-                    />
+                    <CardMedia component='img' image={image} />
                   </Card>
                 ))}
               </div>
@@ -106,9 +88,7 @@ export const CardDetail = () => {
                       className={`keen-slider__slide number-slide${
                         index + 1
                       } ${wrapperThumb}`}
-                      key={index}
-                      // sx={{ maxWidth: '360px', boxShadow: 'none' }}
-                    >
+                      key={index}>
                       <CardMedia
                         component='img'
                         image={image}

@@ -1,24 +1,18 @@
 import { Typography } from '@mui/material';
 import { Container } from '@mui/system';
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { CartCtx } from '../../context/Cart/CartContext';
 import EmptyCart from '../EmptyCart';
 import ProductsInCart from '../ProductsInCart';
 import SummaryCart from '../SummaryCart';
 
-// import styles from './rwd.module.scss';
 import styles from './rwd.module.scss';
 
 const { wrapper, wrapperProducts, wrapperProductsSummary } = styles;
 
-// type CartType = {
-//   items: DummyProductType[];
-//   price: number;
-// };
-// cartState: CartType;
 const Cart = () => {
   const { cartState } = useContext(CartCtx);
-  const { items, price } = cartState;
+  const { items } = cartState;
   return (
     <div className={wrapper}>
       {items.length > 0 ? (

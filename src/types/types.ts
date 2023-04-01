@@ -45,6 +45,7 @@ type DummyProductType = {
   images: Array<string>;
   quantity: number;
 };
+type SingleProduct = { product: DummyProductType };
 
 type DummyCard = DummyProductType & {
   innerRef?: any;
@@ -68,9 +69,7 @@ interface IProductCtx {
   isLoading: boolean;
   hasMore: boolean;
   error: boolean;
-  // categories: Array<string>;
   fetchData: (limit: number) => Promise<() => void>;
-  // fetchCategories: () => Promise<() => void>;
 }
 
 type CartProviderType = { children: React.ReactNode };
@@ -92,4 +91,5 @@ export type {
   DummyCard,
   IProductCtx,
   ProductProviderType,
+  SingleProduct,
 };

@@ -27,7 +27,9 @@ export const NotFound = () => {
             The page you are looking for might be removed or is temporarily
             unavailable
           </span>
-          <Link to='/'>back to homepage</Link>
+          <Button component={Link} to={'/'}>
+            back to homepage
+          </Button>
         </div>
       </section>
     </div>
