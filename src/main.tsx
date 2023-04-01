@@ -1,11 +1,6 @@
-import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Cart from './components/Cart';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import CartProvider from './context/Cart/CartProvider';
-import Navbar from './components/Navbar';
-import Cards from './components/Cards';
-import { CardDetail } from './components/CardDetail';
 import { NotFound } from './components/NotFound';
 import ProductProvider from './context/Product/ProductProvider';
 import './styles/global.scss';
@@ -18,9 +13,8 @@ import ProductPage from './pages/ProductPage';
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <ProductProvider>
     <CartProvider>
-      <BrowserRouter>
+      <Router>
         <ScrollToTop />
-        {/* <Navbar /> */}
         <Routes>
           <Route path='/' element={<HomePage />} />
           <Route path='/shop' element={<ShopPage />} />
@@ -31,9 +25,8 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
             errorElement={<NotFound />}
           />
           <Route path='*' element={<NotFound />} />
-          {/* <Route path='/' element={<Test />} /> */}
         </Routes>
-      </BrowserRouter>
+      </Router>
     </CartProvider>
   </ProductProvider>
 );

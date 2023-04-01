@@ -12,23 +12,13 @@ const { header, headerLink, headerWrapper, headerLinks } = style;
 
 const Navbar = () => {
   const { cartState } = useContext(CartCtx);
-  // console.log(useLocation());
-  // console.log(categories);
+
   const { items } = cartState;
   const itemsInCart = items.length;
-
-  useEffect(() => {
-    // fetchCategories();
-  }, []);
 
   return (
     <header className={header}>
       <div className={headerWrapper}>
-        {/* <div>
-          {categories.map((element) => (
-            <p>{element}</p>
-          ))}
-        </div> */}
         <Link to='/'>
           <BehindGreenDoor />
         </Link>
@@ -42,10 +32,7 @@ const Navbar = () => {
           <Link to='/cart' className={headerLink}>
             <ShoppingCart />
             <p>{itemsInCart ? `(${itemsInCart})` : ''}</p>
-            {/* <img src={ShoppingCart} alt='Cart' /> */}
-            {/* Cart */}
           </Link>
-          {/* <Link to='/'></Link> */}
         </nav>
       </div>
     </header>

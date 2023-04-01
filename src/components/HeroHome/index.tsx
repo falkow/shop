@@ -1,7 +1,5 @@
 import style from './rwd.module.scss';
-import mountain from '../../assets/mountain.jpg';
 import mountain1 from '../../assets/mountain1.jpg';
-import mountain2 from '../../assets/mountain2.jpg';
 import Typewriter from 'typewriter-effect';
 import { Container } from '@mui/system';
 import { Button, Typography } from '@mui/material';
@@ -35,7 +33,9 @@ export const HeroHome = () => {
           rockets to patches of imagination and mugs with infinite
           possibilities.
         </Typography>
-        <Link to='/shop'>Go to Shop</Link>
+        <Button component={Link} to='/shop'>
+          Go to Shop
+        </Button>
       </Container>
       <Container className={wrapperRight}>
         <img src={mountain1} alt='backorund' />
