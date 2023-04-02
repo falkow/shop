@@ -1,7 +1,8 @@
-import styles from './ProductsInCart.module.scss';
+import { Card } from '@mui/material';
 import SingleProductInCart from '../SingleProductInCart';
 import { CartType, DummyProductType } from '../../types/types';
-import { Card } from '@mui/material';
+
+import styles from './ProductsInCart.module.scss';
 
 const { wrapper } = styles;
 

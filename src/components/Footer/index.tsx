@@ -1,8 +1,9 @@
-import FacebookSVG from '../../assets/Facebook';
-import InstagramSVG from '../../assets/InstagramSVG';
 import { BehindGreenDoor } from '../../assets/BehindGreenDoor';
 import { Link } from '@mui/material';
+import FacebookSVG from '../../assets/Facebook';
+import InstagramSVG from '../../assets/InstagramSVG';
 import YoutubeSVG from '../../assets/YoutubeSVG';
+
 import styles from './rwd.module.scss';
 
 const { wrapper, wrapperLogo, wrapperMedia, wrapperMediaSVG, wrapperLinks } =

@@ -38,7 +38,6 @@ function reducer(state: CartType, action: CartActions) {
               return item;
             });
 
-      // console.log({ items: items, price: totalPrice(items) });
       return { items: items, price: totalPrice(items) };
     }
     case ACTIONS.DELETE: {
@@ -81,8 +80,7 @@ function reducer(state: CartType, action: CartActions) {
       const items =
         found === -1
           ? [...state.items]
-          : // : state.items[found].quantity === 1
-            // ? state.items.filter((item) => item.id !== action.payload.id)
+          : // ? state.items.filter((item) => item.id !== action.payload.id)
             state.items.map((item, index) => {
               if (index === found) {
                 return { ...item, quantity: item.quantity + 1 };
@@ -91,14 +89,12 @@ function reducer(state: CartType, action: CartActions) {
               }
             });
 
-      console.log({ items: items, price: totalPrice(items) });
       return { items: items, price: totalPrice(items) };
     }
     case ACTIONS.RESET: {
       return { items: [], price: 0 };
     }
     case ACTIONS.CHANGEQTY: {
-      console.log(action);
       const found = state.items.findIndex((item) => {
         return item.id === action.payload.id;
       });

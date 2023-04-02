@@ -1,6 +1,5 @@
 import axios, { Canceler } from 'axios';
-import React, { useCallback, useMemo, useState } from 'react';
-import { Navigate } from 'react-router-dom';
+import React, { useCallback, useState } from 'react';
 import { DummyProductType, ProductProviderType } from '../../types/types';
 import { ProductCtx } from './ProductContext';
 
@@ -18,20 +17,15 @@ const ProductProvider = ({ children }: ProductProviderType) => {
       url: `https://dummyjson.com/products/categories/`,
       cancelToken: new axios.CancelToken((c) => (cancel = c)),
     };
-    // setIsLoading(true);
 
     await axios(config)
       .then((response) => {
         setCategories(() => {
-          // console.log(response);
           return [...response.data];
         });
-        // if (products.length < response.data.total) setHasMore(true);
-        // setIsLoading(false);
       })
       .catch((err) => {
         if (axios.isCancel(err)) return;
-        // setError(true);
       });
     return () => cancel();
   }, []);
@@ -45,14 +39,16 @@ const ProductProvider = ({ children }: ProductProviderType) => {
         params: { limit: limit },
         cancelToken: new axios.CancelToken((c) => (cancel = c)),
       };
-      setIsLoading(true);
 
+      setIsLoading(true);
       await axios(config)
         .then((response) => {
           setProducts(() => {
             return [...response.data.products];
           });
-          if (products.length < response.data.total) setHasMore(true);
+          if (products.length < response.data.total) {
+            setHasMore(true);
+          } else setHasMore(false);
           setIsLoading(false);
         })
         .catch((err) => {
@@ -71,9 +67,7 @@ const ProductProvider = ({ children }: ProductProviderType) => {
         isLoading,
         hasMore,
         error,
-        // categories,
         fetchData,
-        // fetchCategories,
       }}>
       {children}
     </ProductCtx.Provider>

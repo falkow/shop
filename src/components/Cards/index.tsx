@@ -1,8 +1,8 @@
 import { useCallback, useContext, useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ProductCtx } from '../../context/Product/ProductContext';
-
 import { CardProduct } from '../CardProduct';
+import { Backdrop, CircularProgress } from '@mui/material';
 import styles from './Cards.module.scss';
 
 const { wrapper, wrapperLink } = styles;
@@ -37,9 +37,15 @@ const Cards = () => {
   useEffect(() => {
     fetchData(limit);
   }, [limit]);
+  console.log(hasMore);
 
   return (
     <div className={wrapper}>
+      <Backdrop
+        sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+        open={isLoading}>
+        <CircularProgress color='inherit' />
+      </Backdrop>
       {products.map((product, index) => {
         if (products.length === index + 1) {
           return (

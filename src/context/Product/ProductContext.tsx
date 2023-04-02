@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 import { DummyProductType, IProductCtx } from '../../types/types';
 
 const fetchDataDummy = async () => {

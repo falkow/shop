@@ -3,14 +3,7 @@ import {
   KeenSliderPlugin,
   useKeenSlider,
 } from 'keen-slider/react';
-import React, {
-  MouseEventHandler,
-  MutableRefObject,
-  useCallback,
-  useEffect,
-  useMemo,
-  useState,
-} from 'react';
+import { MutableRefObject, useCallback, useState } from 'react';
 
 function ThumbnailPlugin(
   mainRef: MutableRefObject<KeenSliderInstance | null>
@@ -54,7 +47,6 @@ export const useSlider = () => {
     loop: false,
     slides: {
       perView: 1,
-      // spacing: 10,
     },
     slideChanged(slider) {
       setCurrentSlide(slider.track.details.rel);
@@ -75,16 +67,12 @@ export const useSlider = () => {
   );
 
   const handleSlidePrev = useCallback((e: any): void => {
-    // (e: /* MouseEventHandler<HTMLElement> */): void => {
-    // e.preventDefault();
     e.stopPropagation();
 
     if (instanceRef.current) instanceRef.current.prev();
   }, []);
 
   const handleSlideNext = useCallback((e: any): void => {
-    // e.preventDefault();
-
     e.stopPropagation();
     if (instanceRef.current) instanceRef.current.next();
   }, []);

@@ -1,4 +1,3 @@
-import React from 'react';
 import FollowUs from '../components/FollowUs';
 import Footer from '../components/Footer';
 import FreeShipping from '../components/FreeShipping';

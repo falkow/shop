@@ -1,5 +1,5 @@
 import { Button, Card, Container, Typography } from '@mui/material';
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { CartCtx } from '../../context/Cart/CartContext';
 import { currencyFormatter } from '../../utils/currencyFormatter';
 

@@ -2,8 +2,9 @@ import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { BehindGreenDoor } from '../../assets/BehindGreenDoor';
 import ShoppingCart from '../../assets/ShoppingCart';
-import style from './Navbar.module.scss';
 import { CartCtx } from '../../context/Cart/CartContext';
+
+import style from './Navbar.module.scss';
 
 const { header, headerLink, headerWrapper, headerLinks } = style;
 

@@ -1,9 +1,10 @@
-import style from './rwd.module.scss';
 import mountain1 from '../../assets/mountain1.jpg';
 import Typewriter from 'typewriter-effect';
 import { Container } from '@mui/system';
 import { Button, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
+
+import style from './rwd.module.scss';
 
 const { wrapper, wrapperLeftParagraph, wrapperLeft, wrapperRight } = style;
 

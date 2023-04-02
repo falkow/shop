@@ -1,15 +1,16 @@
 import { Button, Card, CardHeader, CardMedia, Typography } from '@mui/material';
 import { useContext } from 'react';
 import { Navigate, useParams } from 'react-router-dom';
-import { ProductCtx } from '../../context/Product/ProductContext';
-import styles from './rwd.module.scss';
-import 'keen-slider/keen-slider.min.css';
-import { useSlider } from '../../hooks/useSlider';
 import StarScore from '../StarScore';
+import { ProductCtx } from '../../context/Product/ProductContext';
 import { CartCtx } from '../../context/Cart/CartContext';
 import { addProduct } from '../../context/Cart/reducer';
 import { currencyFormatter } from '../../utils/currencyFormatter';
+import { useSlider } from '../../hooks/useSlider';
 import { ModalArrowSVG } from '../../assets/ModalArrowSVG';
+
+import styles from './rwd.module.scss';
+import 'keen-slider/keen-slider.min.css';
 
 const {
   wrapper,

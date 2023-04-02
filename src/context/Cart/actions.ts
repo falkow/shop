@@ -6,7 +6,3 @@ export enum ACTIONS {
   RESET = 'reset',
   CHANGEQTY = 'changeQty',
 }
-
-// export type CartActions = { type: ACTIONS.ADD; payload: {} }
-
-// export default ACTIONS;

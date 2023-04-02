@@ -1,14 +1,7 @@
-import {
-  Button,
-  Card,
-  CardHeader,
-  CardMedia,
-  // Input,
-  Typography,
-} from '@mui/material';
+import { Button, Card, CardHeader, CardMedia, Typography } from '@mui/material';
 import Input from '@mui/joy/Input';
-import { Container, display } from '@mui/system';
-import React, { useContext } from 'react';
+import { Container } from '@mui/system';
+import { useContext } from 'react';
 import Bin from '../../assets/Bin';
 import { CartCtx } from '../../context/Cart/CartContext';
 import {
