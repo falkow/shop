@@ -12,10 +12,6 @@
   "dependencies": {
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
-    "@fortawesome/fontawesome-svg-core": "^6.3.0",
-    "@fortawesome/free-regular-svg-icons": "^6.3.0",
-    "@fortawesome/free-solid-svg-icons": "^6.3.0",
-    "@fortawesome/react-fontawesome": "^0.2.0",
     "@mui/joy": "^5.0.0-alpha.70",
     "@mui/material": "^5.11.7",
     "axios": "^1.3.4",
@@ -26,7 +22,6 @@
     "react-router-dom": "^6.8.0",
     "react-typewriter-effect": "^1.1.0",
     "sass": "^1.57.1",
-    "styled-components": "^5.3.6",
     "typewriter-effect": "^2.19.0"
   },
   "devDependencies": {
