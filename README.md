@@ -1,6 +1,6 @@
 # Behind Green Door Shop
 
-# Technologies used
+## Technologies used
 
 - React
 - React-DOM
