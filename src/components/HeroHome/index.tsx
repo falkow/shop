@@ -6,12 +6,12 @@ import { Link } from 'react-router-dom';
 
 import style from './rwd.module.scss';
 
-const { wrapper, wrapperLeftParagraph, wrapperLeft, wrapperRight } = style;
+// const { wrapper, wrapperLeftParagraph, wrapperLeft, wrapperRight } = style;
 
 export const HeroHome = () => {
   return (
-    <div className={wrapper}>
-      <Container className={wrapperLeft}>
+    <div className={style.wrapper}>
+      <Container className={style.wrapperLeft}>
         <h1>
           <Typewriter
             options={{
@@ -21,7 +21,7 @@ export const HeroHome = () => {
             }}
           />
         </h1>
-        <Typography className={wrapperLeftParagraph}>
+        <Typography className={style.wrapperLeftParagraph}>
           Welcome to our one-of-a-kind online store, where we offer everything
           and nothing at the same time! Our mission is to provide you with the
           highest quality products that are completely unique and unavailable
@@ -36,7 +36,7 @@ export const HeroHome = () => {
           Go to Shop
         </Button>
       </Container>
-      <Container className={wrapperRight}>
+      <Container className={style.wrapperRight}>
         <img src={mountain1} alt='backorund' />
       </Container>
     </div>

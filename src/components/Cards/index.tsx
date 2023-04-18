@@ -37,7 +37,6 @@ const Cards = () => {
   useEffect(() => {
     fetchData(limit);
   }, [limit]);
-  console.log(hasMore);
 
   return (
     <div className={wrapper}>

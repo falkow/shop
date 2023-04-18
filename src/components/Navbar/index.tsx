@@ -6,8 +6,6 @@ import { CartCtx } from '../../context/Cart/CartContext';
 
 import style from './Navbar.module.scss';
 
-const { header, headerLink, headerWrapper, headerLinks } = style;
-
 const Navbar = () => {
   const { cartState } = useContext(CartCtx);
 
@@ -15,19 +13,19 @@ const Navbar = () => {
   const itemsInCart = items.length;
 
   return (
-    <header className={header}>
-      <div className={headerWrapper}>
+    <header className={style.header}>
+      <div className={style.headerWrapper}>
         <Link to='/'>
           <BehindGreenDoor />
         </Link>
-        <nav className={headerLinks}>
-          <Link to='/' className={headerLink}>
+        <nav className={style.headerLinks}>
+          <Link to='/' className={style.headerLink}>
             Home
           </Link>
-          <Link to='/shop' className={headerLink}>
+          <Link to='/shop' className={style.headerLink}>
             Shop
           </Link>
-          <Link to='/cart' className={headerLink}>
+          <Link to='/cart' className={style.headerLink}>
             <ShoppingCart />
             <p>{itemsInCart ? `(${itemsInCart})` : ''}</p>
           </Link>

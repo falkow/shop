@@ -1,23 +1,23 @@
 import { Typography } from '@mui/material';
 import { Container } from '@mui/system';
 import ApprovalSVG from '../../assets/ApprovalSVG';
-import styles from './FollowUs.module.scss';
+import style from './FollowUs.module.scss';
 
-const { wrapper, wrapperHeader, wrapperParagraph } = styles;
+// const { wrapper, wrapperHeader, wrapperParagraph } = styles;
 
 const FollowUs = () => {
   return (
-    <Container className={wrapper}>
-      <h2 className={wrapperHeader}>
+    <Container className={style.wrapper}>
+      <h2 className={style.wrapperHeader}>
         @behindgreendoor <ApprovalSVG />
       </h2>
-      <Typography className={wrapperParagraph}>
+      <Typography className={style.wrapperParagraph}>
         707K FOLLOWERS ON INSTAGRAM
       </Typography>
-      <Typography className={wrapperParagraph}>
+      <Typography className={style.wrapperParagraph}>
         Get inspired by tips and tricks from colleagues at GreenDoors.
       </Typography>
-      <Typography className={wrapperParagraph}>#greenshop</Typography>
+      <Typography className={style.wrapperParagraph}>#greenshop</Typography>
     </Container>
   );
 };

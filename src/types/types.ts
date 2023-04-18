@@ -43,7 +43,7 @@ type DummyProductType = {
   category: string;
   thumbnail: string;
   images: Array<string>;
-  quantity: number;
+  quantity?: number;
 };
 type SingleProduct = { product: DummyProductType };
 

@@ -29,7 +29,7 @@ const SingleProductInCart = ({ product }: SingleProduct) => {
 
   return (
     <Card className={wrapper} sx={{ borderRadius: '0' }}>
-      <Container className={wrapperLeft} /* sx={{ display: 'flex' }} */>
+      <Container className={wrapperLeft}>
         <CardMedia
           className='thumbnail'
           component='img'
@@ -43,14 +43,20 @@ const SingleProductInCart = ({ product }: SingleProduct) => {
         />
         <CardHeader title={title} className={wrapperLeftHeader} />
       </Container>
-      <Container className={wrapperRight} /* sx={{ display: 'flex' }} */>
+      <Container className={wrapperRight}>
         <Typography className={wrapperContainerPrice}>{price}</Typography>
         <Input
           className={wrapperContainerQuantity}
           value={quantity}
           type='number'
           onChange={(e) => {
-            dispatch(changeProductQuantity(parseInt(e.target.value), product));
+            if (parseInt(e.target.value) === 0) {
+              dispatch(removeProduct(product));
+            } else {
+              dispatch(
+                changeProductQuantity(parseInt(e.target.value), product)
+              );
+            }
           }}
           startDecorator={
             <Button onClick={() => dispatch(decreaseProductQuantity(product))}>
@@ -64,7 +70,7 @@ const SingleProductInCart = ({ product }: SingleProduct) => {
           }
           sx={{ borderRadius: '12px', borderWidth: '0', minHeight: 'none' }}
         />
-        <Button onClick={(e) => dispatch(removeProduct(product))}>
+        <Button onClick={() => dispatch(removeProduct(product))}>
           <Bin />
         </Button>
       </Container>

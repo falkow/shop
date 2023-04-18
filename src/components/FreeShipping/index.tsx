@@ -1,16 +1,16 @@
 import { Container, Typography } from '@mui/material';
 import freeShipping from '../../assets/freeShipping.jpg';
-import styles from './rwd.module.scss';
+import style from './rwd.module.scss';
 
-const { wrapper, wrapperLeft, wrapperRigth } = styles;
+// const { wrapper, wrapperLeft, wrapperRigth } = styles;
 
 const FreeShipping = () => {
   return (
-    <Container className={wrapper}>
-      <Container className={wrapperLeft}>
+    <Container className={style.wrapper}>
+      <Container className={style.wrapperLeft}>
         <img src={freeShipping} alt='' />
       </Container>
-      <Container className={wrapperRigth}>
+      <Container className={style.wrapperRigth}>
         <h2>Free Shipping</h2>
         <Typography>
           Are you tired of paying for shipping? Well, fear not my friend! We
