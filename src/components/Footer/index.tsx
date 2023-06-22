@@ -17,10 +17,10 @@ const Footer = () => {
       </div>
 
       <div className={style.wrapperLinks}>
-        <Link href='/'>Home</Link>
-        <Link href='/shop'>Shop</Link>
-        <Link href='#'>Contact</Link>
-        <Link href='#'>Regulations</Link>
+        <Link href="/">Home</Link>
+        <Link href="/shop">Shop</Link>
+        <Link href="#">Contact</Link>
+        <Link href="#">Regulations</Link>
       </div>
       <div className={style.wrapperMedia}>
         <p>FOLLOW US</p>

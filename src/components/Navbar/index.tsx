@@ -15,17 +15,17 @@ const Navbar = () => {
   return (
     <header className={style.header}>
       <div className={style.headerWrapper}>
-        <Link to='/'>
+        <Link to="/">
           <BehindGreenDoor />
         </Link>
         <nav className={style.headerLinks}>
-          <Link to='/' className={style.headerLink}>
+          <Link to="/" className={style.headerLink}>
             Home
           </Link>
-          <Link to='/shop' className={style.headerLink}>
+          <Link to="/shop" className={style.headerLink}>
             Shop
           </Link>
-          <Link to='/cart' className={style.headerLink}>
+          <Link to="/cart" className={style.headerLink}>
             <ShoppingCart />
             <p>{itemsInCart ? `(${itemsInCart})` : ''}</p>
           </Link>

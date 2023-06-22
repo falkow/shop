@@ -31,8 +31,8 @@ const SingleProductInCart = ({ product }: SingleProduct) => {
     <Card className={wrapper} sx={{ borderRadius: '0' }}>
       <Container className={wrapperLeft}>
         <CardMedia
-          className='thumbnail'
-          component='img'
+          className="thumbnail"
+          component="img"
           image={thumbnail}
           alt={title}
           sx={{
@@ -48,7 +48,7 @@ const SingleProductInCart = ({ product }: SingleProduct) => {
         <Input
           className={wrapperContainerQuantity}
           value={quantity}
-          type='number'
+          type="number"
           onChange={(e) => {
             if (parseInt(e.target.value) === 0) {
               dispatch(removeProduct(product));

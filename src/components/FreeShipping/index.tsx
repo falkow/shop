@@ -8,7 +8,7 @@ const FreeShipping = () => {
   return (
     <Container className={style.wrapper}>
       <Container className={style.wrapperLeft}>
-        <img src={freeShipping} alt='' />
+        <img src={freeShipping} alt="Free shipping" />
       </Container>
       <Container className={style.wrapperRigth}>
         <h2>Free Shipping</h2>

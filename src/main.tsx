@@ -13,15 +13,18 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
       <Router>
         <ScrollToTop />
         <Routes>
-          <Route path='/' element={<HomePage />} />
-          <Route path='/shop' element={<ShopPage />} />
-          <Route
-            path='/shop/:id'
-            element={<ProductPage />}
-            errorElement={<NotFound />}
-          />
-          <Route path='/cart' element={<CartPage />} />
-          <Route path='*' element={<NotFound />} />
+          <Route index path="/" element={<HomePage />} />
+          {/* <Route path='shop' element={<ShopPage />}> */}
+          <Route path="shop">
+            <Route index element={<ShopPage />} />
+            <Route
+              path=":id"
+              element={<ProductPage />}
+              errorElement={<NotFound />}
+            />
+          </Route>
+          <Route path="cart" element={<CartPage />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>
     </CartProvider>

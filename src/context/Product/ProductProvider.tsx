@@ -41,20 +41,19 @@ const ProductProvider = ({ children }: ProductProviderType) => {
       };
 
       setIsLoading(true);
-      await axios(config)
-        .then((response) => {
-          setProducts(() => {
-            return [...response.data.products];
-          });
-          if (products.length < response.data.total) {
-            setHasMore(true);
-          } else setHasMore(false);
-          setIsLoading(false);
-        })
-        .catch((err) => {
-          if (axios.isCancel(err)) return;
-          setError(true);
+      try {
+        const test = await axios(config);
+        setProducts(() => {
+          return [...test.data.products];
         });
+        if (products.length < test.data.total) {
+          setHasMore(true);
+        } else setHasMore(false);
+        setIsLoading(false);
+      } catch (error) {
+        setIsLoading(false);
+        setError(true);
+      }
       return () => cancel();
     },
     [products]
@@ -68,7 +67,8 @@ const ProductProvider = ({ children }: ProductProviderType) => {
         hasMore,
         error,
         fetchData,
-      }}>
+      }}
+    >
       {children}
     </ProductCtx.Provider>
   );

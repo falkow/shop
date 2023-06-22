@@ -29,9 +29,11 @@ export const CardProduct = ({ ...product }: DummyCard) => {
         borderRadius: '12px',
         position: 'relative',
         height: '300px',
-      }}>
+      }}
+    >
       <CardMedia
-        component='img'
+        component="img"
+        alt={title}
         image={product.thumbnail}
         sx={{
           height: '140px',
@@ -45,14 +47,15 @@ export const CardProduct = ({ ...product }: DummyCard) => {
       />
       <StarScore rating={rating} />
       <CardContent sx={{ padding: '5px' }} className={cardPrice}>
-        <Typography variant='body2'>{currencyFormatter(price)}</Typography>
+        <Typography variant="body2">{currencyFormatter(price)}</Typography>
         <Button
           onClick={(e) => {
             e.preventDefault();
             dispatch(addProduct(product));
           }}
           sx={{ position: 'absolute', bottom: '0', left: 'calc(50% - 64px)' }}
-          className={cardButton}>
+          className={cardButton}
+        >
           Add to Cart
         </Button>
       </CardContent>

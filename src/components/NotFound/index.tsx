@@ -19,7 +19,7 @@ export const NotFound = () => {
       </div>
       <section className={wrapperMain}>
         <div className={wrapperMainScarecrow}>
-          <img src={scarecrow} alt='Scarecrow' />
+          <img src={scarecrow} alt="Scarecrow" />
         </div>
         <div className={wrapperMainInform}>
           <h2>I have bad news for you</h2>

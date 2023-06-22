@@ -55,16 +55,19 @@ export const CardDetail = () => {
             <Card className={wrapperContentSliders}>
               <div
                 className={`keen-slider ${wrapperContentSlidersUpper}`}
-                ref={sliderRef}>
+                ref={sliderRef}
+              >
                 <div className={wrapperContentArrows}>
                   <a
                     className={wrapperContentArrowsLeft}
-                    onClick={handleSlidePrev}>
+                    onClick={handleSlidePrev}
+                  >
                     <ModalArrowSVG />
                   </a>
                   <a
                     className={wrapperContentArrowsRight}
-                    onClick={handleSlideNext}>
+                    onClick={handleSlideNext}
+                  >
                     <ModalArrowSVG />
                   </a>
                 </div>
@@ -75,23 +78,26 @@ export const CardDetail = () => {
                       index + 1
                     } ${wrapperContentSlidersUpperImage}`}
                     key={index}
-                    sx={{ boxShadow: 'none' }}>
-                    <CardMedia component='img' image={image} />
+                    sx={{ boxShadow: 'none' }}
+                  >
+                    <CardMedia component="img" image={image} alt={title} />
                   </Card>
                 ))}
               </div>
               <div
                 className={`keen-slider thumbnail ${wrapperContentSlidersThumbnails}`}
-                ref={thumbnailRef}>
+                ref={thumbnailRef}
+              >
                 {images.map((image, index) => {
                   return (
                     <Card
                       className={`keen-slider__slide number-slide${
                         index + 1
                       } ${wrapperThumb}`}
-                      key={index}>
+                      key={index}
+                    >
                       <CardMedia
-                        component='img'
+                        component="img"
                         image={image}
                         className={wrapperThumbImage}
                       />
@@ -120,7 +126,8 @@ export const CardDetail = () => {
                 onClick={(e) => {
                   e.preventDefault();
                   dispatch(addProduct(product));
-                }}>
+                }}
+              >
                 Add to cart
               </Button>
             </Card>
@@ -129,6 +136,6 @@ export const CardDetail = () => {
       </div>
     );
   } else {
-    return <Navigate to='/not-found' />;
+    return <Navigate to="/not-found" />;
   }
 };

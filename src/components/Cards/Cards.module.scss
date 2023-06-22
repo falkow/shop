@@ -14,3 +14,13 @@
     margin: 0 15px;
   }
 }
+.err {
+  &Shown {
+    opacity: 1;
+    transition: all 250ms linear !important;
+  }
+  // &Hidden {
+  //   opacity: 0;
+  //   transition: all 250ms linear 2s !important;
+  // }
+}

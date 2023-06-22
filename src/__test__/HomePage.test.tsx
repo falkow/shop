@@ -9,7 +9,7 @@ describe('HomePage component', () => {
     const wrapper = render(
       <Router>
         <Routes>
-          <Route path='/' element={<HomePage />} />
+          <Route path="/" element={<HomePage />} />
         </Routes>
       </Router>
     );

@@ -30,7 +30,8 @@ describe('TestComponent which is using fetchData from Product Provider', () => {
           hasMore: false,
           isLoading: false,
           products: [],
-        }}>
+        }}
+      >
         <TestComponent />
       </ProductCtx.Provider>
     );

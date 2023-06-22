@@ -32,12 +32,12 @@ export const HeroHome = () => {
           rockets to patches of imagination and mugs with infinite
           possibilities.
         </Typography>
-        <Button component={Link} to='/shop'>
+        <Button component={Link} to="/shop">
           Go to Shop
         </Button>
       </Container>
       <Container className={style.wrapperRight}>
-        <img src={mountain1} alt='backorund' />
+        <img src={mountain1} alt="Backgrund image" />
       </Container>
     </div>
   );

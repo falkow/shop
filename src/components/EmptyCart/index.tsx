@@ -9,7 +9,7 @@ const EmptyCart = () => {
     <Container className={wrapper}>
       <Typography>Your shopping cart is empty</Typography>
       <Typography>Looking for inspiration?</Typography>
-      <Button component={Link} to='/shop'>
+      <Button component={Link} to="/shop">
         Go to Shop
       </Button>
     </Container>
