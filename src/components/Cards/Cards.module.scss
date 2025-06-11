@@ -12,6 +12,8 @@
   &Link {
     flex-basis: 21%;
     margin: 0 15px;
+    display: flex;
+    height: 100%;
   }
 }
 .err {

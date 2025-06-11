@@ -14,7 +14,7 @@ import { currencyFormatter } from '../../utils/currencyFormatter';
 import StarScore from '../StarScore';
 import styles from './CardProduct.module.scss';
 
-const { card, cardHeader, cardPrice, cardButton } = styles;
+const { card, cardHeader, cardPrice, cardProduct } = styles;
 
 export const CardProduct = ({ ...product }: DummyCard) => {
   const { dispatch } = useContext(CartCtx);
@@ -22,17 +22,9 @@ export const CardProduct = ({ ...product }: DummyCard) => {
   const { title, price, innerRef, rating } = product;
 
   return (
-    <Card
-      className={card}
-      ref={innerRef}
-      sx={{
-        borderRadius: '12px',
-        position: 'relative',
-        height: '300px',
-      }}
-    >
+    <Card className={card} ref={innerRef}>
       <CardMedia
-        component="img"
+        component='img'
         alt={title}
         image={product.thumbnail}
         sx={{
@@ -40,22 +32,15 @@ export const CardProduct = ({ ...product }: DummyCard) => {
           objectFit: 'cover',
         }}
       />
-      <CardHeader
-        className={cardHeader}
-        title={title}
-        sx={{ padding: '5px' }}
-      />
+      <CardHeader className={cardHeader} title={title} />
       <StarScore rating={rating} />
-      <CardContent sx={{ padding: '5px' }} className={cardPrice}>
-        <Typography variant="body2">{currencyFormatter(price)}</Typography>
+      <CardContent className={cardPrice}>
+        <Typography variant='body2'>{currencyFormatter(price)}</Typography>
         <Button
           onClick={(e) => {
             e.preventDefault();
             dispatch(addProduct(product));
-          }}
-          sx={{ position: 'absolute', bottom: '0', left: 'calc(50% - 64px)' }}
-          className={cardButton}
-        >
+          }}>
           Add to Cart
         </Button>
       </CardContent>
