@@ -5,7 +5,7 @@ import { CardProduct } from '../CardProduct';
 import { Alert, Backdrop, CircularProgress } from '@mui/material';
 import styles from './Cards.module.scss';
 
-const { wrapper, wrapperLink, errShown, cardProduct } = styles;
+const { wrapper, wrapperLink, errShown } = styles;
 
 const Cards = () => {
   const [limit, setLimit] = useState(10);

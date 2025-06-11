@@ -53,24 +53,30 @@ const ProductProvider = ({ children }: ProductProviderType) => {
       } catch (error) {
         setIsLoading(false);
         setError(true);
+        if (axios.isAxiosError(error)) {
+          console.error('Axios error:', error.message, error.response);
+        } else {
+          console.error('Unexpected error:', error);
+        }
       }
       return () => cancel();
     },
     [products]
   );
 
+  const contextValue = React.useMemo(
+    () => ({
+      products,
+      isLoading,
+      hasMore,
+      error,
+      fetchData,
+    }),
+    [products, isLoading, hasMore, error, fetchData]
+  );
+
   return (
-    <ProductCtx.Provider
-      value={{
-        products,
-        isLoading,
-        hasMore,
-        error,
-        fetchData,
-      }}
-    >
-      {children}
-    </ProductCtx.Provider>
+    <ProductCtx.Provider value={contextValue}>{children}</ProductCtx.Provider>
   );
 };
 
