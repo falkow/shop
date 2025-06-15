@@ -11,23 +11,25 @@ import style from './rwd.module.scss';
 
 const Footer = () => {
   return (
-    <footer className={style.wrapper}>
-      <div className={style.wrapperLogo}>
-        <BehindGreenDoor />
-      </div>
+    <footer className={style.footer}>
+      <div className={style.footerWrapper}>
+        <div className={style.footerWrapperLogo}>
+          <BehindGreenDoor />
+        </div>
 
-      <div className={style.wrapperLinks}>
-        <Link href="/">Home</Link>
-        <Link href="/shop">Shop</Link>
-        <Link href="#">Contact</Link>
-        <Link href="#">Regulations</Link>
-      </div>
-      <div className={style.wrapperMedia}>
-        <p>FOLLOW US</p>
-        <div className={style.wrapperMediaSVG}>
-          <FacebookSVG />
-          <InstagramSVG />
-          <YoutubeSVG />
+        <div className={style.footerWrapperLinks}>
+          <Link href='/'>Home</Link>
+          <Link href='/shop'>Shop</Link>
+          <Link href='#'>Contact</Link>
+          <Link href='#'>Regulations</Link>
+        </div>
+        <div className={style.footerWrapperMedia}>
+          <p>FOLLOW US</p>
+          <div className={style.footerWrapperMediaSVG}>
+            <FacebookSVG />
+            <InstagramSVG />
+            <YoutubeSVG />
+          </div>
         </div>
       </div>
     </footer>

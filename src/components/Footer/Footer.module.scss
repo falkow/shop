@@ -1,45 +1,48 @@
 @import '../../styles/variables';
 
-.wrapper {
+.footer {
   background-color: $fontColor;
   width: 100%;
-  margin-top: auto;
-  display: flex;
-  padding: 90px 0;
-  justify-content: space-around;
-  align-items: center;
-  &Media {
+  &Wrapper {
     display: flex;
-    flex-direction: column;
-    color: $colorWhite;
-    font-size: $fontSizeXL;
-    &SVG {
-      & svg {
-        margin: 10px;
-        height: 22px;
-        &:hover {
-          cursor: pointer;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 90px 20px;
+    &Media {
+      display: flex;
+      flex-direction: column;
+      color: $colorWhite;
+      font-size: $fontSizeXL;
+      &SVG {
+        & svg {
+          margin: 10px;
+          height: 22px;
+          &:hover {
+            cursor: pointer;
+          }
         }
       }
     }
-  }
-  &Logo {
-    & svg {
-      width: 100px;
-      height: 100px;
+    &Logo {
+      & svg {
+        width: 100px;
+        height: 100px;
+      }
     }
-  }
-  &Links {
-    display: flex;
-    flex-direction: column;
-    & a {
-      text-decoration: none;
-      color: $colorWhite;
-      font-family: $fontFamily;
-      font-size: $fontSizeXL;
-      margin: 5px 0;
-      &:hover {
-        cursor: pointer;
+    &Links {
+      display: flex;
+      flex-direction: column;
+      & a {
+        text-decoration: none;
+        color: $colorWhite;
+        font-family: $fontFamily;
+        font-size: $fontSizeXL;
+        margin: 5px 0;
+        &:hover {
+          cursor: pointer;
+        }
       }
     }
   }
